@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	function myFunction() {
+  document.getElementById("blockk").style.display = "block";
+}
+	function nonee() {
+  document.getElementById("blockk").style.display = "none";
+}
+</script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="update.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	
+<div class="head">
+	<label class="logo">
+		<img src="1.png">
+	</label>
+	
+	<label class="profile"><a href="profile.html"><img src="ac.png" class="2"></a></label>
+	<label class="menu"><img src="menu.png"></label>
+<ul>
+
+		<li><a href="Template.html">home</a></li><li></li><li><a href="portif.html">Portofolio</a></li><li><a href="About.html">About</a></li><li></li><li><a href="contact.html">contact</a></li><li><a href="port.html">Blog</a></li>
+	</ul>
+</div>
+
+<div class="btns">
+	<label class="Update">
+		<a href="update.html"><button>Update Profile</button></a>
+	</label>
+	
+	<label class="Upload">
+		<a href="create.html"><button>Create</button></a>
+	</label>
+	<label class="delete">
+		<a href="delete.html"><button>Delete</button></a>
+	</label>
+
+	<label class="updatepro">
+		<a href="postup.html"><button>Update Post</button></a>
+	</label>
+	
+	
+
+</div>
+
+	<div class="okkk">
+		<fieldset><legend>Update</legend>
+			<img src="keza.png" style=";width: 70px;height: 90px;"><input type="file" id="file" />
+  <label for="file" />Update pic</label>
+
+		<form>
+			<input type="text" name="name" id="names" placeholder="Update name"><br>
+			<input type="text" name="pro" id="prof" placeholder="profession"><br>
+			<input type="text" name="skill" id="skill" placeholder="skills"><br>
+			<input type="text" name="exp" id="exp" placeholder="experience"><br>
+			<input type="text" name="addres" id="address" placeholder="address"><br>
+			<div class="buto">
+	<button><a href="port.html">update</a></button>
+</div>
+		</form>
+		</fieldset>
+	</div>
+	<div class="sett" onclick="myFunction()"><img src="set.png"></div>
+<div id="blockk">
+<img src="Keza.png"><h1 style="color: white;">Keza Bwiza</h1><br>
+<ul >
+<li onclick="nonee()"><a href="#"><h2>User (12)</h2></a></li>
+
+<li><a href="#" onclick="nonee()"><h2>Notification (5)</h2></a></li>
+
+<li><a href="#" onclick="nonee()"><h2>Post (8)</h2></a></li>
+
+<li><a href="Template.html" ><h2>logout</h2></a></li>
+</ul>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+    $(".menu").click(function(){
+  $("div ul").toggle();
+
+});   
+});
+</script>
+</body>
+</html>
