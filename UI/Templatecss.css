@@ -1,4 +1,4 @@
-	body{background: url('ba.jpg');background-size: cover;	 }
+	body{background: url('img/ba.jpg');background-size: cover;	 }
 		.logi img{position: absolute;top: 10px;padding: 20px;}
 		.head{display: inline;}
 		.head ul {display: inline;position: absolute;top: 10px;left: 66%;}
@@ -37,10 +37,7 @@
 		.sign button{background: #4E4E4E;border: none;padding: 15px;border-radius: 10px;}
 		.sign button a{text-decoration: none;color: #ffffff;}
 		}
-
-
-
-				@media  screen and (max-width: 992px;)
+						@media  screen and (max-width: 992px;)
 		{
 			body{background: url('12.jpeg');background-size: cover;background-repeat:no-repeat;}
 		.amagamb{line-height: 30px;padding: 20px;height: 100%;width: 100%;position: absolute;top: 100px;left: 20px;border-radius: 20px;padding: 0px;}
