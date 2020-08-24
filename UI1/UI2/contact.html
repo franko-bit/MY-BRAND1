@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog post</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="contact.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="head">
+	<label class="logo">
+		<img src="img/1.png">
+	</label>
+	
+	<label class="profile"><a href="profile.html"><img src="img/ac.png" class="2"></a></label>
+	<label class="menu"><img src="img/menu.png"></label>
+<ul>
+
+		
+		<li><a href="Template.html">home</a></li><li></li><li><a href="portif.html">Portofolio</a></li><li><a href="About.html">About</a></li><li></li><li><a href="contact.html">contact</a></li><li><a href="port.html">Blog</a></li>
+	</ul>
+</div>
+<form>
+	<b>Contact us</b><br><br>
+	<input type="text" name="name" placeholder="fullname"><br><br>
+	<input type="Email" name="mail" placeholder="Email"><br><br>
+	<input type="text" name="phn" placeholder="phone"><br><br>
+	<input type="text" name="name" placeholder="subject"><br><br>
+	<textarea placeholder="message"></textarea><br><br>
+	<button ><a href="Template.html">Submit</a></button>
+</form>
+<script type="text/javascript">
+	$(document).ready(function(){
+    $(".menu").click(function(){
+  $("div ul").toggle();
+});
+	});
+</script>
+</body>
+</html>
