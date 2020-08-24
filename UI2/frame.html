@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blog post</title>
+	<link rel="stylesheet" type="text/css" href="blog.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		
+ body{background: none;	 }
+		
+		.blogg{width: 88%;position: absolute;top: 20%;border-radius: 20px;padding-left: 16px;margin: 0px;}
+        		.blogg .bc{float: left;margin-left: 10px;margin-bottom: 40px;width: 40%;height: 420px;padding-left: 20px;}
+.blogg .bc .close{background: #8f9699;color: white;;padding:5px;margin-left: 30px;margin-top: 90px;}
+		.blogg .c1{width: 95%;border-radius: 20px;padding-left: 20px;padding-top: 0px;height: 400px;}
+		.blogg .c1 .ca{background: #797A79;padding-left: 20px;padding-top: 20px;border-radius: 20px;}
+		.blogg .c1 .ca nav{display: inline;}
+		.blogg .c1 .ca nav img{width: 30px;height: 30px;border-radius: 50px;}
+		.blogg .c1 .ca .post img{width:200px;height: 140px;border-radius: 20px;}
+.blogg .c1 .ca .post p img{width: 20px;height: 20px;padding: 4px;border-radius: 50px;}
+.blogg .c1 .ca .post p button{border-radius: 30px;border: none;background: #0F6F65;padding: 5px;position: relative;s}
+.blogg .c1 .ca .post p textarea{border-radius: 50px;width: 130px;position: relative;background: lightgray;}
+
+.blogg .c1 .cb .post p img{width: 20px;height: 20px;padding: 4px;border-radius: 50px;}
+.blogg .c1 .bc .post p .send{border-radius: 30px;border: none;background: #0F6F65;padding: 5px;position: relative;s}
+.blogg .c1 .cb .post p textarea{border-radius: 50px;width: 130px;position: relative;background: lightgray;}
+.blogg .c1 .bc .post p .read{border-radius: 30px;border: none;background: none;color: white;padding: 5px;position: relative;}
+.blogg .c1 .bc .post p .read:hover{background: darkgreen;}
+.blogg .c1 .cc .post p img{width: 20px;height: 20px;padding: 4px;border-radius: 50px;}
+.blogg .c1 .cc .post p button{border-radius: 30px;border: none;background: #0F6F65;padding: 5px;position: relative;}
+.blogg .c1 .cc .post p textarea{border-radius: 50px;width: 130px;position: relative;background: lightgray;}
+		.blogg .c1 .cb{;background: #797A79;padding-left: 20px;padding-top: 20px;border-radius: 20px;}
+
+
+
+		.blogg .c1 .cb nav{display: inline;}
+		.blogg .c1 .cb nav img{width: 30px;height: 30px;border-radius: 50px;}
+		.blogg .c1 .cb .post img{width:200px;height: 140px;border-radius: 20px;}
+		.blogg .c1 .cc{background: #797A79;padding-left: 20px;padding-top: 20px;border-radius: 20px;}
+		.blogg .c1 .cc nav{display: inline;}
+		.blogg .c1 .cc nav img{width: 30px;height: 30px;border-radius: 50px;}
+		.blogg .c1 .cc .post img{width:200px;height: 140px;border-radius: 20px;}
+
+		.blogg .c1 .cd{background: #797A79;padding-left: 20px;padding-top: 20px;border-radius: 20px;}
+		.blogg .c1 .cd nav{display: inline;}
+		.blogg .c1 .cd nav img{width: 30px;height: 30px;border-radius: 50px;}
+		.blogg .c1 .cd .post img{width:200px;height: 140px;border-radius: 20px;}
+		.blogg .c1 .cd .post p img{width: 20px;height: 20px;padding: 4px;border-radius: 50px;}
+.blogg .c1 .cd .post p button{border-radius: 30px;border: none;background: #0F6F65;padding: 5px;position: relative;}
+.blogg .c1 .cd .post p textarea{border-radius: 50px;width: 130px;position: relative;background: lightgray;}
+.blogg .c1 .cd .post p textarea::placeholder{padding: 8px;}
+.blogg .c1 .cc .post p textarea::placeholder{padding: 8px;}
+.blogg .c1 .cb .post p textarea::placeholder{padding: 8px;}
+.blogg .c1 .ca .post p textarea::placeholder{padding: 8px;}
+	
+	@media only screen and (max-width: 768px){
+	.logo img{width: 40px;height: 20px;margin-left: 10px;margin-top: 10px;}
+		.profile a img{width: 40px;height: 40px;float: right;margin-top: 10px;padding-right: 0px;margin-right: 80px;}
+		.menu img{width: 35px;height: 35px;float: right;margin-top: 10px;display: none;}
+
+		.head{display: inline;width: 100%;}
+		.head ul {display: inline;position: absolute;top: 20px;left: 12%;}
+		.head ul li{list-style: none;display: inline;padding-left: 10px;}
+		.head ul li a{color: Mediumseagreen;text-decoration: none;font-size: 27px;}
+		.head ul li a:hover{color: green;}
+
+
+		.blogg{width: 100%;position: absolute;top: 20%;border-radius: 20px;padding-left: 2px;margin: 0px;}
+			.blogg .bc{float: left;margin-left: 5px;margin-bottom: 20px;width: 28%;}
+.blogg .c1{width: 100%;border-radius: 20px;padding-left: 5px;padding-top: 20px;height: 400px;}
+		
+		}
+
+
+			@media only screen and (max-width: 600px){
+	.logo img{width: 40px;height: 20px;margin-left: 6px;margin-top: 6px;}
+		.profile a img{width: 30px;height: 30px;float: right;margin-top: 6px;padding-right: 0px;margin-right: 7px;}
+		.menu img{width: 30px;height: 30px;float: right;margin-top: 5px;display: block;padding-right: 10px;}
+		.head{display: inline;width: 100%;margin-left: 0px;}
+		.head ul {position: fixed;
+line-height: 80px;
+			width: 100%;
+			height: 100vh;
+			background: #2c3e50;
+			top: 50px;
+			left: -50px;
+			text-align: center;
+			z-index: 1;
+transition: all .5s;
+		}
+		.head ul li{list-style: none;display: block;padding-left: 10px;margin-left: -30px;text-align: center;}
+		.head ul li a{color: Mediumseagreen;text-decoration: none;font-size: 27px;line-height: 40px;}
+		
+		.blogg{width: 70%;border-radius: 20px;padding-left: 2px;margin: 0px;}
+			.blogg .bc{float: left;margin-left: 8px;margin-bottom: 20px;width: 60%;}
+.blogg .c1{width: 68%;border-radius: 20px;padding-left: 0px;padding-top: 20px;height: 400px;}
+		.blogg .c1 .close b{background: blue;margin-left: 50%;color: white;position: absolute;top: 2px;}
+		}
+	</style>
+	
+</head>
+<body>	
+
+<div class="blogg">
+	<div class="c1">
+		<h1>Delete with close button</h1>
+		
+					<div class="bc ca">
+
+						<nav>
+							<img src="pro.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+
+							<img src="io.jpg">
+							
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button> <br><img src="9.png" onclick="like7()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg6()">Send</button><br><span id="likespan7">0</span>
+						&nbsp;&nbsp;&nbsp;
+							<span id="sendo6">0</span></p>
+							
+						</div>
+					</div>
+					<div class="bc cb">
+						<nav>
+							<img src="3.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="18.jpg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button> <br><img src="9.png" onclick="like6()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg5()">Send</button><br><span id="likespan6">0</span>
+						&nbsp;&nbsp;&nbsp;
+							<span id="sendo5">0</span></p>
+						</div>
+					</div>
+					<div class="bc cc">
+						<nav>
+							<img src="4.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="17.jpg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button>  <br><img src="9.png" onclick="like5()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg4()">Send</button><br><span id="likespan5">0</span>
+						&nbsp;&nbsp;&nbsp;
+							<span id="sendo4">0</span></p>
+						</div>
+					</div>
+
+					<div class="bc cd">
+						<nav>
+							<img src="pro.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="5.jpg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button>  <br><img src="9.png" onclick="like4()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg3()">Send</button><br><span id="likespan4">0</span>
+						&nbsp;&nbsp;&nbsp;
+							<span id="sendo3">0</span></p>
+						</div>
+					</div>
+
+
+
+					<div class="bc ca">
+						<nav>
+							<img src="pro.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="6.jpg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button>  <br><img src="9.png" onclick="like3()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg2()">Send</button><br><span id="likespan3">0</span> &nbsp;&nbsp;&nbsp;
+							<span id="sendo2">0</span></p>
+						</div>
+					</div>
+					<div class="bc cb">
+						<nav>
+							<img src="7.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="10.jpg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button>  <br><img src="9.png" onclick="like2()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg1()">Send</button><br><span id="likespan2">0</span> &nbsp;&nbsp;&nbsp;
+							<span id="sendo1">0</span></p>
+						</div>
+					</div>
+					<div class="bc cc">
+						<nav>
+							<img src="8.jpg">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="14.jpeg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris <button class="read">read more..</button>  <br><img src="9.png" onclick="like1()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg7()">Send</button><br><span id="likespan1">0</span> &nbsp;&nbsp;&nbsp;
+							<span id="sendo7">0</span></p>
+						</div>
+					</div>
+
+
+					<div class="bc cd">
+						<nav>
+							<img src="keza.png">
+							<b>Munana Kevin</b>
+						</nav>
+						<label class="close">
+								<b >X</b>
+							</label>
+						<div class="post">
+							<img src="19.jpg">
+							<p> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris<a href="19.jpg" target="_BLANK"><button class="read">read more..</button> </a> <br><img src="9.png" onclick="like()"><textarea placeholder="Comment...."></textarea><button class="send" onclick="msg()" >Send</button><br><span id="likespan">0</span>&nbsp;&nbsp;&nbsp;
+							<span id="sendo">0</span></p>
+						</div>
+					</div>
+					
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+    $(".menu").click(function(){
+  $("div ul").toggle();
+});
+	});
+
+
+    
+	function like(){
+		var a = document.getElementById('likespan').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan').innerText = b;
+	}
+
+	function like1(){
+		var a = document.getElementById('likespan1').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan1').innerText = b;
+	}
+
+	function like2(){
+		var a = document.getElementById('likespan2').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan2').innerText = b;
+	}
+
+	function like3(){
+		var a = document.getElementById('likespan3').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan3').innerText = b;
+	}
+
+	function like4(){
+		var a = document.getElementById('likespan4').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan4').innerText = b;
+	}
+	function like5(){
+		var a = document.getElementById('likespan5').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan5').innerText = b;
+	}
+	function like6(){
+		var a = document.getElementById('likespan6').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan6').innerText = b;
+	}
+	function like7(){
+		var a = document.getElementById('likespan7').innerText;
+	var b =parseInt(a) + 1 +' '+ 'likes';
+document.getElementById('likespan7').innerText = b;
+	}
+
+
+function msg(){
+	var a = document.getElementById('sendo').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo').innerText = b;
+}
+function msg1(){
+	var a = document.getElementById('sendo1').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo1').innerText = b;
+}
+function msg2(){
+	var a = document.getElementById('sendo2').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo2').innerText = b;
+}
+function msg3(){
+	var a = document.getElementById('sendo3').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo3').innerText = b;
+}
+function msg4(){
+	var a = document.getElementById('sendo4').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo4').innerText = b;
+}
+function msg5(){
+	var a = document.getElementById('sendo5').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo5').innerText = b;
+}
+function msg6(){
+	var a = document.getElementById('sendo6').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo6').innerText = b;
+}
+function msg7(){
+	var a = document.getElementById('sendo7').innerText;
+	var b =parseInt(a) + 1 +' '+ 'Comments';
+document.getElementById('sendo7').innerText = b;
+}
+
+</script>
+
+	
+</body>
+</html>

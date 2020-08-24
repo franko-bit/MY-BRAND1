@@ -1,0 +1,86 @@
+body{background: url('ba.jpg');background-size: cover;}
+	
+
+		#blockk, .sett img{
+			padding-top: 18px;
+  padding-left: 95%;
+  width: 30px;
+  height: 30px;
+}
+
+#blockk{position: absolute;left: 70%;
+	padding: 100px;
+	width: 200px;
+	height: 300px;
+	background-color: rgba(0, 0, 0, 0.9); 
+}
+#blockk img{border-radius: 50px;width: 100px;height: 100px;}
+#blockk ul li{list-style: none;}
+#blockk ul li a{text-decoration: none;color: white;}
+#blockk {
+  display: none;
+}
+		.logo img{width: 40px;height: 20px;margin-left: 20px;margin-top: 10px;}
+		.profile a img{width: 30px;height: 30px;float: right;margin-top: 10px;padding-right: 30px;}
+		.menu img{width: 35px;height: 35px;float: right;margin-top: 10px;display: none;}
+
+		.head{display: inline;}
+		.head ul {display: inline;position: absolute;top: 10px;left: 64%;}
+		.head ul li{list-style: none;display: inline;padding-left: 10px;}
+		.head ul li a{color: #6F0F0F;text-decoration: none;font-size: 20px;}
+		.head ul li a:hover{color: green;}
+		.head ul li img{border-radius: 50px;width: 30px;}
+		form{position: absolute;top: 150px;left: 430px;}
+		form b{font-size: 50px;color: white;}
+		form input{padding: 16px;border-radius: 30px;border: none;width: 300px;}
+		textarea{padding: 16px;border-radius: 30px;width: 300px;}
+		button{background: #4f9d95;border: none;width: 80px;height: 30px;border-radius: 30px;}
+
+
+		@media only screen and (max-width: 768px){
+	.logo img{width: 50px;height: 30px;margin-left: 10px;margin-top: 10px;}
+		.profile a img{width: 40px;height: 40px;float: right;margin-top: 10px;padding-right: 0px;margin-right: 80px;}
+		.menu img{width: 35px;height: 35px;float: right;margin-top: 10px;display: none;}
+
+		.head{display: inline;width: 100%;}
+		.head ul {display: inline;position: absolute;top: 20px;left: 12%;}
+		.head ul li{list-style: none;display: inline;padding-left: 10px;}
+		.head ul li a{color: Mediumseagreen;text-decoration: none;font-size: 27px;}
+		.head ul li a:hover{color: green;}
+form{width: 300px;position: absolute;top: 150px;left: 230px;}
+form b{font-size: 50px;color: white;}
+		form input{padding: 20px;border-radius: 30px;border: none;width: 300px;margin-bottom: 30px;}
+		textarea{padding: 16px;border-radius: 30px;width: 300px;}
+		button{background: #4f9d95;border: none;width: 80px;height: 30px;border-radius: 30px;}
+
+
+		}
+
+			@media only screen and (max-width: 600px){
+	.logo img{width: 40px;height: 20px;margin-left: 6px;margin-top: 6px;}
+		.profile a img{width: 30px;height: 30px;float: right;margin-top: 6px;padding-right: 0px;margin-right: 7px;}
+		.menu img{width: 30px;height: 30px;float: right;margin-top: 5px;display: block;padding-right: 10px;}
+
+		.head{display: inline;width: 100%;margin-left: 0px;}
+		.head ul {position: fixed;
+line-height: 80px;
+			width: 100%;
+			height: 100vh;
+			background: #2c3e50;
+			top: 50px;
+			left: -50px;
+			text-align: center;
+			z-index: 1;
+transition: all .5s;
+		}
+		.head ul li{list-style: none;display: block;padding-left: 10px;margin-left: -30px;text-align: center;}
+		.head ul li a{color: Mediumseagreen;text-decoration: none;font-size: 27px;line-height: 40px;}
+		
+		form{width: 300px;position: absolute;top:90px;left: 10px;}
+form b{font-size: 50px;color: white;}
+		form input{padding: 20px;border-radius: 30px;border: none;width: 250px;margin-bottom: 0px;}
+		textarea{padding: 16px;border-radius: 30px;width: 250px;border:none;}
+		button{background: #4f9d95;border: none;width: 80px;height: 30px;border-radius: 30px;}
+
+
+		}
