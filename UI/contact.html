@@ -21,15 +21,76 @@
 		<li><a href="Template.html">home</a></li><li></li><li><a href="portif.html">Portofolio</a></li><li><a href="About.html">About</a></li><li></li><li><a href="contact.html">contact</a></li><li><a href="port.html">Blog</a></li>
 	</ul>
 </div>
-<form>
+	<form name="myForm" id="form">
 	<b>Contact us</b><br><br>
-	<input type="text" name="name" placeholder="fullname"><br><br>
-	<input type="Email" name="mail" placeholder="Email"><br><br>
-	<input type="text" name="phn" placeholder="phone"><br><br>
-	<input type="text" name="name" placeholder="subject"><br><br>
-	<textarea placeholder="message"></textarea><br><br>
-	<button ><a href="Template.html">Submit</a></button>
+	<input type="text" name="name" placeholder="fullname" id = "name"><br><br>
+	<input type="text" name="mail" placeholder="Email" id = "mail"><br><br>
+	<input type="text" name="phn" placeholder="phone" id = "phn"><br><br>
+	<input type="text" name="sub" placeholder="subject" id = "sub"><br><br>
+	<textarea placeholder="message" id = "msg" name="msg"></textarea><br><br>
+	<button >Submit</button>
 </form>
+<style type="text/css">
+	table{
+		
+		grid-template-rows: max-content;
+	}
+</style>
+		<table id="loc" border="1">
+			<!--<tr><th>Name</th><th>Email</th><th>Telephone</th><th>Subject</th><th>Message</th></tr>-->
+			<tr><th></th><th></th><th></th><th></th><th></th></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+
+		</table>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+    authDomain: "contact-9929f.firebaseapp.com",
+    databaseURL: "https://contact-9929f.firebaseio.com",
+    projectId: "contact-9929f",
+    storageBucket: "contact-9929f.appspot.com",
+    messagingSenderId: "685843499166",
+    appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+    measurementId: "G-T8E2YCTQ5D"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  document.querySelector("#form").addEventListener("submit",function (e){
+  	e.preventDefault()
+			firebase.firestore().collection("query").add({
+				name: document.getElementById("name").value,
+				email: document.getElementById("mail").value,
+				tel: document.getElementById("phn").value,
+				sub: document.getElementById("sub").value,
+				msg: document.getElementById("msg").value
+			}).then(function(){
+				window.location.href ="contact.html"
+				})
+		});
+ 
+	
+
+	
+</script>
+<script type="text/javascript">
+
+
+
+	
+</script>
+
+  
+
 <script type="text/javascript">
 	$(document).ready(function(){
     $(".menu").click(function(){
