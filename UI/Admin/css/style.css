@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #333333;
+  width: 100vw;
+}
+/* navbar */
+.head {
+  background: #333333;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1em;
+}
+.head .menu {
+  display: none;
+}
+.head ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+}
+.head ul li a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+.head ul li {
+  margin-left: 1em;
+}
+.profile {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 38px;
+}
+.profile a img {
+  height: 50px;
+}
+
+.head ul li a:hover {
+  color: #ffffff;
+}
+/* css cards and card*/
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 1rem;
+  padding-top: 5rem;
+}
+.card {
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+}
+.card p {
+  padding-top: 1em;
+}
+.cards h4 {
+  color: rgb(134, 130, 130);
+}
+
+/*contact form*/
+.myForm {
+  max-width: 400px;
+  width: 90%;
+  margin: auto;
+  margin-top: 5rem;
+}
+.myForm b {
+  font-size: 50px;
+  color: white;
+}
+.myForm input,
+.myForm textarea {
+  padding: 16px;
+  border-radius: 30px;
+  width: 100%;
+}
+.myForm button {
+  background: #4f9d95;
+  border: none;
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
+}
+/*media query of queries*/
+@media only screen and (max-width: 768px) {
+  .head {
+    width: 110%;
+  }
+  .head .menu {
+    margin-left: 1em;
+    display: block;
+    color: #ffffff;
+  }
+  .head .menu i {
+    font-size: 30px;
+
+    cursor: pointer;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 48px;
+    height: 560px;
+    margin-top: 0%;
+    width: 100%;
+    background: #333333;
+    clip-path: circle(0px at 100% 40%);
+    -webkit-clip-path: circle(0px at 90% 70%);
+    transition: all 1s ease-in-out;
+  }
+  .nav-links.open {
+    clip-path: circle(1000px at 90% 10%);
+    -webkit-clip-path: circle(1000px at 90% 10%);
+  }
+  .cards {
+    margin: 0rem auto;
+    margin-top: 5rem;
+  }
+}
+
+/*
+.logo img {
+  width: 40px;
+  height: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.profile a img {
+  width: 30px;
+  height: 30px;
+}
+.menu img {
+  width: 35px;
+  height: 35px;
+  float: right;
+  margin-top: 10px;
+  display: none;
+}
+
+.head {
+  display: inline;
+}
+.head ul {
+  display: inline;
+  position: absolute;
+  top: 10px;
+  left: 64%;
+}
+.head ul li {
+  list-style: none;
+  display: inline;
+  padding-left: 10px;
+}
+.head ul li a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 20px;
+}
+.head ul li a:hover {
+  color: green;
+}
+.head ul li img {
+  border-radius: 50px;
+  width: 30px;
+}*/
