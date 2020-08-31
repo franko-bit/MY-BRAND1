@@ -11,7 +11,7 @@
 }
 </script>
 	<style type="text/css">
-body{background: url('ba.jpg');background-size: cover;}
+body{background: url('img/ba.jpg');background-size: cover;}
 	
 
 		#blockk, .sett img{
@@ -45,22 +45,42 @@ body{background: url('ba.jpg');background-size: cover;}
 		.head ul li a:hover{color: green;}
 		.head ul li img{border-radius: 50px;width: 30px;}
 		.back{background: #e6eaeb;height: 260px;width: 280px;position: absolute;top: 80px;left: 10px;border-radius: 20px;}
-		.profi{display: inline;}
-		.profi ul {display: inline;position: absolute;top: 140px;left: 60%;width: 200px;}
+		.back .prof img{width: 38px;height: 40px;border-radius: 50px;position: absolute;left: 10px;top: 10px;}
+.back .prof b{position: absolute;left: 50px;top: 15px;font-size: 20px;}
+
+		.partle{height: 500px;width: 300px;background: gray;border-radius: 20px;position: absolute;top: 90px;}
+		.partle b{padding-left: 20px;font-size: 50px;}
+		.partle .post{width: 250px;height: 140px;border: 1px solid black;background: url('io.jpg');background-size: cover;border-radius: 20px;position: absolute;left: 10px;top: 60px;
+		}
+		.partle .post textarea{border-radius: 10px;position: absolute;top: 150px;width: 200px;}
+.partle .post button{background: #1ea3b4;border-radius: 10px;border: none;position: absolute;top: 160px;left: 220px;}
+.profi{display: inline;}
+		.profi ul {display: inline;position: absolute;top: 140px;left: 60%;}
 		.profi ul li{list-style: none;display: inline;padding-left: 30px;}
 		.profi ul li a{color: black;text-decoration: none;font-size: 30px;}
 		.pic{position: absolute;left: 400px;top: 200px;}
 		.pic img{width: 300px;height: 350px;border-radius: 50px;}
 
-		.okkk fieldset{position: absolute;top: 160px;left: 270px;width: 360px;height: 400px;background-color: rgba(0, 0, 0, 0.5);border: none;border-radius: 10px;}
+		.okkk fieldset{position: absolute;top: 160px;left: 270px;width: 360px;height: 400px;background-color: rgba(0, 0, 0, 0.5);border: none;}
 .okkk form{position: absolute;top: 130px;left: 30px;}
-.buto button{}	
-.buto button{padding: 7px;border-radius: 10px;border: none;background: #005073;margin-top: 40%;}
+	.okkk form input{border: none;
+		background: none;
+		border-bottom: 2px solid white;
+		border-radius: 6px;
+		height: 30px;
+		width: 300px;
+}
+
+
+
+.okkk fieldset img{position: absolute;top: -20px;left: 50px;}
+.okkk label{color: white;}
+.log form input{width: 10px;}
+	.okkk form input:hover{border: 2px solid white;}
+	.buto button{padding: 7px;border-radius: 10px;border: none;background: #005073;margin-top: 10%;}
 .buto button a{text-decoration: none;color: gray;}
-.okkk img{position: absolute;top: 60px;left: 50px;width: 100px;height: 130px;}
-.okkk form textarea{height: 70px;width: 240px;position: absolute;top: 160px;border-radius: 20px;}
-.okkk form textarea::placeholder{font-size: 11px;padding-top: 20px;}
-.okkk form input{padding: 12px;border-radius: 10px;border: none;margin-top: 45%;width: 220px;}
+		.okkk form textarea{padding: 20px;width: 270px;border-radius: 20px;}
+		
 
 				[type="file"] {
   height: 0;
@@ -75,18 +95,18 @@ body{background: url('ba.jpg');background-size: cover;}
   color: #fff;
   cursor: pointer;
   display: inline-block;
-    font-family: 'Rubik', sans-serif;
-    font-size: inherit;
+  font-family: "Rubik", sans-serif;
+  font-size: inherit;
   font-weight: 500;
   margin-bottom: 1rem;
   outline: none;
-  padding:10px;
-  position: absolute;top: 20%;left: 45%;
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  left: 40%;
   transition: all 0.3s;
   vertical-align: middle;
-  
-  }
-.prof img{position: absolute;top: 50px;left: 20px;width: 160px;height: 170px;}
+}
   .btns{background: #0e7c73;border: none;  border-radius: 5px;transition: all 0.3s;  color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -101,7 +121,7 @@ position: absolute;left: 60%;top: 10%}
   cursor: pointer;
   display: inline-block;
     font-family: 'Rubik', sans-serif;background: #0e7c73;border: none; }
- .btns  .Upload button{color: gray;}
+ .btns  .updatepro button{color: gray;}
 	</style>
 </head>
 <body>
@@ -120,57 +140,25 @@ position: absolute;left: 60%;top: 10%}
 </div>
 
 
-<div class="btns">
-	<label class="Update">
-		<a href="update.html"><button>Update Profile</button></a>
-	</label>
-	
-	<label class="Upload">
-		<a href="create.html"><button>Create</button></a>
-	</label>
-	<label class="delete">
-		<a href="delete.html"><button>Delete</button></a>
-	</label>
-
-	<label class="updatepro">
-		<a href="postup.html"><button>Update Post</button></a>
-	</label>
-	
-	
-
-</div>
 
 
 	<div class="okkk">
-		<fieldset><legend>Create</legend>
-			<label class="prof">
-			<img src="img/keza.png" >
-			</label>
-			<input type="file" id="file"/>	
-  <label for="file" />Upload pic</label>
+		<fieldset><legend>Update</legend>
+			<img src="img/keza.png" style="width: 120px;height: 110px;position: absolute;left: 20px;top: 18px;"><input type="file" id="file" />
+  <label for="file" />Update pic</label>
 
 		<form>
-			<input type="text" name="post" placeholder="post title.....">
-			<textarea placeholder="post article....."></textarea>
-			
-			<div class="buto">
-	<button><a href="port.html">Create</a></button>
+			<input type="text" name="title" placeholder="Create title..."><br>
+			<br><br>
+			<textarea placeholder="Create article..."></textarea><br>
+	
+		<div class="buto">
+	<button><a href="admin.html">Create</a></button>
+</div>
 </div>
 		</form>
 		</fieldset>
 	</div>
-	<div class="sett" onclick="myFunction()"><img src="set.png"></div>
-<div id="blockk">
-<img src="Keza.png"><h1 style="color: white;">Keza Bwiza</h1><br>
-<ul >
-<li onclick="nonee()"><a href="#"><h2>User (12)</h2></a></li>
-
-<li><a href="#" onclick="nonee()"><h2>Notification (5)</h2></a></li>
-
-<li><a href="#" onclick="nonee()"><h2>Post (8)</h2></a></li>
-
-<li><a href="Template.html" ><h2>logout</h2></a></li>
-</ul>
-</div>
+	
 </body>
 </html>

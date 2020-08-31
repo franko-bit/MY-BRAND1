@@ -1,0 +1,91 @@
+.profi {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 300px;
+  width: 700px;
+}
+.profi h1 {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  color: white;
+}
+.profi p {
+  margin-top: 3rem;
+  font-size: 22px;
+  color: gray;
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 992px) {
+  .profi {
+    position: absolute;
+    top: 300px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 300px;
+    width: 80%;
+  }
+  .profi h1 {
+    color: white;
+  }
+  .profi p {
+    font-size: 26px;
+    color: gray;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profi {
+    position: absolute;
+    top: 300px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 300px;
+    width: 80%;
+  }
+  .profi h1 {
+    color: white;
+  }
+  .profi p {
+    font-size: 26px;
+    color: gray;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profi {
+    position: absolute;
+    top: 300px;
+    left: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 300px;
+    width: 80%;
+  }
+  .profi h1 {
+    color: white;
+  }
+  .profi p {
+    font-size: 26px;
+    color: gray;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .profi {
+    position: absolute;
+    top: 300px;
+    left: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 400px;
+    width: 80%;
+  }
+  .profi h1 {
+    color: white;
+  }
+  .profi p {
+    font-size: 26px;
+    color: gray;
+  }
+}
