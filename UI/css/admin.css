@@ -44,9 +44,12 @@
 .card .post .footer nav {
   padding: 10px;
 }
-.clos {
+.iconn {
   font-size: 22px;
   display: flex;
   justify-content: flex-end;
   margin-top: -2rem;
+}
+.iconn #close {
+  margin-left: 1rem;
 }

@@ -110,17 +110,7 @@ p {
 .comments {
   margin-top: 3rem;
 }
-.changepost button {
-  margin-top: 4rem;
-  margin-left: 7rem;
-  padding: 10px 40px;
-  background: none;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-}
-.changepost button:hover {
-  background: teal;
-}
+
 .comment-delede-like {
   margin-bottom: 1rem;
 }
