@@ -29,7 +29,7 @@ body {
   padding: 0;
   margin: 0;
   list-style: none;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .head ul li a {
@@ -121,7 +121,7 @@ body {
   .nav-links {
     flex-direction: column;
     position: fixed;
-    top: 48px;
+    top: 45px;
     height: 560px;
     margin-top: 0%;
     width: 100%;
@@ -131,57 +131,11 @@ body {
     transition: all 1s ease-in-out;
   }
   .nav-links.open {
-    clip-path: circle(1000px at 90% 10%);
-    -webkit-clip-path: circle(1000px at 90% 10%);
+    clip-path: circle(1500px at 90% 10%);
+    -webkit-clip-path: circle(1500px at 90% 10%);
   }
   .cards {
     margin: 0rem auto;
     margin-top: 5rem;
   }
 }
-
-/*
-.logo img {
-  width: 40px;
-  height: 20px;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-.profile a img {
-  width: 30px;
-  height: 30px;
-}
-.menu img {
-  width: 35px;
-  height: 35px;
-  float: right;
-  margin-top: 10px;
-  display: none;
-}
-
-.head {
-  display: inline;
-}
-.head ul {
-  display: inline;
-  position: absolute;
-  top: 10px;
-  left: 64%;
-}
-.head ul li {
-  list-style: none;
-  display: inline;
-  padding-left: 10px;
-}
-.head ul li a {
-  color: #f1f1f1;
-  text-decoration: none;
-  font-size: 20px;
-}
-.head ul li a:hover {
-  color: green;
-}
-.head ul li img {
-  border-radius: 50px;
-  width: 30px;
-}*/
