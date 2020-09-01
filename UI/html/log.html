@@ -1,93 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-  <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../css/login.css" />
-</head>
-<body>
-<div class="log" id="bosi">
-	
-		<fieldset>
-      <legend>Login</legend>
-      <form id="login-div" name="myForm">
-			
-      
-		<input type="email" name="user" placeholder="User Email" id="email"><br><br>
-		<input type="password" name="pass" placeholder="password" id="pass"><br><br>
-<button onclick="log()"><a href="admin.html">Login</a></button>
-</form>
-</fieldset>
-	
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="log" id="bosi">
+      <fieldset>
+        <legend>Login</legend>
+        <form id="login-div" name="myForm">
+          <input
+            type="email"
+            name="user"
+            placeholder="User Email"
+            id="email"
+          /><br /><br />
+          <input
+            type="password"
+            name="pass"
+            placeholder="password"
+            id="pass"
+          /><br /><br />
+          <button onclick="log()"><a href="admin.html">Login</a></button>
+        </form>
+      </fieldset>
 
-	<div id="logout-div"style="margin-top: 100%;">
-		<h1>OK</h1>
-	</div>
-		
-</div>
+      <div id="logout-div" style="margin-top: 100%">
+        <h1>OK</h1>
+      </div>
+    </div>
 
-</div>
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
+        authDomain: "my-login-3f783.firebaseapp.com",
+        databaseURL: "https://my-login-3f783.firebaseio.com",
+        projectId: "my-login-3f783",
+        storageBucket: "my-login-3f783.appspot.com",
+        messagingSenderId: "783839353814",
+        appId: "1:783839353814:web:5009797bd84985880aa277",
+        measurementId: "G-7K7HK8HW4E",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
 
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
-    authDomain: "my-login-3f783.firebaseapp.com",
-    databaseURL: "https://my-login-3f783.firebaseio.com",
-    projectId: "my-login-3f783",
-    storageBucket: "my-login-3f783.appspot.com",
-    messagingSenderId: "783839353814",
-    appId: "1:783839353814:web:5009797bd84985880aa277",
-    measurementId: "G-7K7HK8HW4E"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    document.getElementById("logout-div").style.display = "block";
-	document.getElementById("login-div").style.display = "none";
-  } else {
-    // No user is signed in.
-    document.getElementById("logout-div").style.display = "none";
-	document.getElementById("login-div").style.display = "block";
-  }
-});
-document.querySelector("#login-div").addEventListener("submit", function (e){
-    	
-  	var maill = document.getElementById("email").value;
-  	var password = document.getElementById("pass").value;
-  	
-    if (document.myForm.user.value.trim().length < 5) {
-          alert("Please provide your user email!");
-          document.myForm.user.focus();
-          return false;
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          redirect("/html/admin.html");
         }
-        if (document.myForm.pass.value.trim().length < 2) {
-          alert("Please provide your strong password!");
-          document.myForm.pass.focus();
-          return false;
-        }
+      });
+      document
+        .querySelector("#login-div")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var maill = document.getElementById("email").value;
+          var password = document.getElementById("pass").value;
 
-  	firebase.auth().signInWithEmailAndPassword(maill, password).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-   alert("errorMessage");
-  // ...
+          if (document.myForm.user.value.trim().length < 5) {
+            alert("Please provide your user email!");
+            document.myForm.user.focus();
+            return false;
+          }
+          if (document.myForm.pass.value.trim().length < 2) {
+            alert("Please provide your strong password!");
+            document.myForm.pass.focus();
+            return false;
+          }
 
-});
-  });
-</script>
-</body>
+          firebase
+            .auth()
+            .signInWithEmailAndPassword(maill, password)
+            .catch(function (error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              alert("errorMessage");
+              // ...
+            });
+        });
+      function redirect(URL) {
+        return (location.href = `${URL}`);
+      }
+    </script>
+  </body>
 </html>

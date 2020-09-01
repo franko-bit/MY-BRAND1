@@ -8,3 +8,15 @@ menu.addEventListener("click", () => {
     link.classList.toggle("fade");
   });
 });
+function logout() {
+  firebase
+    .auth()
+    .signOut()
+    .catch(function (error) {
+      // An error happened.
+      console.log(error);
+    });
+}
+function redirect(URL) {
+  return (location.href = `${URL}`);
+}

@@ -25,22 +25,22 @@
         <li><a href="./contact.html">contact</a></li>
         <li><a href="./port.html">Blog</a></li>
         <li class="profile">
-          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
+          <a href="editprofile.html"> <img src="../img/ac.png" class="2" /></a>
         </li>
       </ul>
     </div>
     <div class="About">
       <form id="login-div" name="myForm">
-        <h3>Upadate</h3>
-        <img src="../img/17.jpg" style="width: 120px" /><input
+        <h3>Update profile</h3>
+        <img src="../img/ac.png" style="width: 120px" /><input
           type="file"
           id="file"
         />
-        <label for="file">Update pic</label><br />
+        <label for="file">Update profile</label><br />
 
-        <input type="text" name="title" placeholder="Update title..." /><br />
+        <input type="text" name="name" placeholder="Update name..." /><br />
         <br />
-        <textarea placeholder="Update article..." name="article"></textarea
+        <textarea placeholder="Update hobbies..." name="hobbies"></textarea
         ><br />
 
         <div class="buto">
@@ -50,21 +50,23 @@
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
+  https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
-        authDomain: "my-login-3f783.firebaseapp.com",
-        databaseURL: "https://my-login-3f783.firebaseio.com",
-        projectId: "my-login-3f783",
-        storageBucket: "my-login-3f783.appspot.com",
-        messagingSenderId: "783839353814",
-        appId: "1:783839353814:web:5009797bd84985880aa277",
-        measurementId: "G-7K7HK8HW4E",
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
@@ -73,17 +75,17 @@
         .querySelector("#login-div")
         .addEventListener("submit", function (e) {
           e.preventDefault();
-          var title = document.getElementsByName("title").value;
-          var article = document.getElementById("article").value;
+          var name = document.getElementsByName("name").value;
+          var hobbies = document.getElementById("hobbies").value;
 
-          if (document.myForm.title.value.trim().length < 10) {
-            alert("Please provide your user email!");
-            document.myForm.title.focus();
+          if (document.myForm.name.value.trim().length < 10) {
+            alert("Please provide your user Name!");
+            document.myForm.name.focus();
             return false;
           }
-          if (document.myForm.article.value.trim().length < 15) {
-            alert("Please provide your message with 15 characters and above!");
-            document.myForm.article.focus();
+          if (document.myForm.hobbies.value.trim().length < 15) {
+            alert("Please provide your hobbies with 15 characters and above!");
+            document.myForm.hobbies.focus();
             return false;
           }
         });
