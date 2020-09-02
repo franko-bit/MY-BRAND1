@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/aboutcss.css" />
+    <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
+    <link
+      rel="stylesheet"
+      href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="head">
+      <label class="logo">
+        <img src="../img/1.png" />
+      </label>
+      <label class="menu"><i class="fa fa-bars"></i></label>
+      <ul class="nav-links">
+        <li><a href="./Template.html">home</a></li>
+        <li><a href="./portif.html">Portofolio</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="./contact.html">contact</a></li>
+        <li><a href="./port.html">Blog</a></li>
+        <li class="profile">
+          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
+        </li>
+      </ul>
+    </div>
+    <div class="About">
+      <form id="login-div" name="myForm">
+        <h3>Upadate</h3>
+        <img src="../img/17.jpg" style="width: 120px" /><input
+          type="file"
+          id="file"
+        />
+        <label for="file">Update pic</label><br />
+
+        <input type="text" name="title" placeholder="Update title..." /><br />
+        <br />
+        <textarea placeholder="Update article..." name="article"></textarea
+        ><br />
+
+        <div class="buto">
+          <button name="submit"><a href="admin.html">update</a></button>
+        </div>
+      </form>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
+        authDomain: "my-login-3f783.firebaseapp.com",
+        databaseURL: "https://my-login-3f783.firebaseio.com",
+        projectId: "my-login-3f783",
+        storageBucket: "my-login-3f783.appspot.com",
+        messagingSenderId: "783839353814",
+        appId: "1:783839353814:web:5009797bd84985880aa277",
+        measurementId: "G-7K7HK8HW4E",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      document
+        .querySelector("#login-div")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var title = document.getElementsByName("title").value;
+          var article = document.getElementById("article").value;
+
+          if (document.myForm.title.value.trim().length < 10) {
+            alert("Please provide your user email!");
+            document.myForm.title.focus();
+            return false;
+          }
+          if (document.myForm.article.value.trim().length < 15) {
+            alert("Please provide your message with 15 characters and above!");
+            document.myForm.article.focus();
+            return false;
+          }
+        });
+    </script>
+    <script src="../Admin/js/navbar.js"></script>
+    <script src="./Admin/js/Auth.js"></script>
+  </body>
+</html>

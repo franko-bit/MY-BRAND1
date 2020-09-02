@@ -30,6 +30,7 @@
 		  <li class="profile">
 			<a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
 		  </li>
+		  <li><a href="#" onclick="logout()">log out</a></li>
 		</ul>
 	  </div>
    
@@ -321,7 +322,7 @@
       </div>
 	</div>
 
-
+	<script src="../Admin/js/navbar.js"></script>
 	<script type="text/javascript">
 	function noresult(){
 document.getElementById("rat").style.display= "none";
@@ -440,7 +441,29 @@ document.getElementById("ratoo").style.display= "none";
 
 
 </script>
-<script src="./Admin/js/navbar.js"></script>
-		
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+       <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+       <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+       <script>
+         // Your web app's Firebase configuration
+         var firebaseConfig = {
+           apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
+           authDomain: "my-login-3f783.firebaseapp.com",
+           databaseURL: "https://my-login-3f783.firebaseio.com",
+           projectId: "my-login-3f783",
+           storageBucket: "my-login-3f783.appspot.com",
+           messagingSenderId: "783839353814",
+           appId: "1:783839353814:web:5009797bd84985880aa277",
+           measurementId: "G-7K7HK8HW4E",
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         firebase.analytics();   
+       </script>
+<script src="../Admin/js/navbar.js"></script>
+<script src="../Admin/js/Auth.js"></script>		
 </body>
 </html>

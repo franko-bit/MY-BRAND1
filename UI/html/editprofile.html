@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/aboutcss.css" />
+    <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
+    <link
+      rel="stylesheet"
+      href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="head">
+      <label class="logo">
+        <img src="../img/1.png" />
+      </label>
+      <label class="menu"><i class="fa fa-bars"></i></label>
+      <ul class="nav-links">
+        <li><a href="./Template.html">home</a></li>
+        <li><a href="./portif.html">Portofolio</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="./contact.html">contact</a></li>
+        <li><a href="./port.html">Blog</a></li>
+        <li class="profile">
+          <a href="editprofile.html"> <img src="../img/ac.png" class="2" /></a>
+        </li>
+      </ul>
+    </div>
+    <div class="About">
+      <form id="login-div" name="myForm">
+        <h3>Update profile</h3>
+        <img src="../img/ac.png" style="width: 120px" /><input
+          type="file"
+          id="file"
+        />
+        <label for="file">Update profile</label><br />
+
+        <input type="text" name="name" placeholder="Update name..." /><br />
+        <br />
+        <textarea placeholder="Update hobbies..." name="hobbies"></textarea
+        ><br />
+
+        <div class="buto">
+          <button name="submit"><a href="admin.html">update</a></button>
+        </div>
+      </form>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      document
+        .querySelector("#login-div")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = document.getElementsByName("name").value;
+          var hobbies = document.getElementById("hobbies").value;
+
+          if (document.myForm.name.value.trim().length < 10) {
+            alert("Please provide your user Name!");
+            document.myForm.name.focus();
+            return false;
+          }
+          if (document.myForm.hobbies.value.trim().length < 15) {
+            alert("Please provide your hobbies with 15 characters and above!");
+            document.myForm.hobbies.focus();
+            return false;
+          }
+        });
+    </script>
+    <script src="../Admin/js/navbar.js"></script>
+    <script src="./Admin/js/Auth.js"></script>
+  </body>
+</html>

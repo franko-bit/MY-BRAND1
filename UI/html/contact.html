@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" type="text/css" href="./Admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
     <link
       rel="stylesheet"
       href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -20,19 +20,17 @@
   <body>
     <div class="head">
       <label class="logo">
-        <img src="img/1.png" />
+        <img src="../img/1.png" />
       </label>
       <label class="menu"><i class="fa fa-bars"></i></label>
       <ul class="nav-links">
-        <li><a href="Template.html">home</a></li>
-        <li></li>
-        <li><a href="portif.html">Portofolio</a></li>
-        <li><a href="About.html">About</a></li>
-        <li></li>
-        <li><a href="contact.html">contact</a></li>
-        <li><a href="port.html">Blog</a></li>
+        <li><a href="./Template.html">home</a></li>
+        <li><a href="./portif.html">Portofolio</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="./contact.html">contact</a></li>
+        <li><a href="./port.html">Blog</a></li>
         <li class="profile">
-          <a href="profile.html"> <img src="img/ac.png" class="2" /></a>
+          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
         </li>
       </ul>
     </div>
@@ -58,7 +56,7 @@
       ><br /><br />
       <button>Submit</button>
     </form>
-    <script src="./Admin/js/navbar.js"></script>
+    <script src="../Admin/js/navbar.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
@@ -84,7 +82,12 @@
 
       document.querySelector("#form").addEventListener("submit", function (e) {
         e.preventDefault();
-        if (document.myForm.sub.value == "") {
+        if (document.myForm.name.value.trim().length < 5) {
+          alert("Please provide your Name!");
+          document.myForm.name.focus();
+          return false;
+        }
+        if (document.myForm.sub.value.trim().length < 2) {
           alert("Please provide your subject!");
           document.myForm.sub.focus();
           return false;
@@ -103,24 +106,24 @@
           document.myForm.phn.focus();
           return false;
         }
-        if (document.myForm.mail.value == "") {
+        if (document.myForm.mail.value.trim().length < 2) {
           alert("Please provide your Email!");
           document.myForm.mail.focus();
           return false;
         }
-        // firebase
-        //   .firestore()
-        //   .collection("query")
-        //   .add({
-        //     name: document.getElementById("name").value,
-        //     email: document.getElementById("mail").value,
-        //     tel: document.getElementById("phn").value,
-        //     sub: document.getElementById("sub").value,
-        //     msg: document.getElementById("msg").value,
-        //   })
-        //   .then(function () {
-        //     window.location.href = "contact.html";
-        //   });
+        firebase
+          .firestore()
+          .collection("query")
+          .add({
+            name: document.getElementById("name").value,
+            email: document.getElementById("mail").value,
+            tel: document.getElementById("phn").value,
+            sub: document.getElementById("sub").value,
+            msg: document.getElementById("msg").value,
+          })
+          .then(function () {
+            window.location.href = "contact.html";
+          });
       });
     </script>
   </body>

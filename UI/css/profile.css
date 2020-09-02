@@ -1,0 +1,53 @@
+.okkk fieldset {
+  position: absolute;
+  top: 100px;
+  left: 470px;
+  width: 360px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+.okkk form {
+  position: absolute;
+  top: 130px;
+  left: 30px;
+}
+.okkk form input {
+  border: none;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  height: 30px;
+  width: 300px;
+  color: white;
+}
+.okkk fieldset img {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+}
+.okkk label {
+  color: white;
+  position: absolute;
+  top: 18px;
+}
+.log form input {
+  width: 10px;
+}
+.okkk form input:hover {
+  border: 2px solid white;
+}
+.buto {
+  position: absolute;
+  top: 220px;
+  left: 87%;
+}
+.buto button {
+  background: #1ea3b4;
+  border: none;
+  border-radius: 10px;
+}
+.buto button a {
+  text-decoration: none;
+  color: white;
+}

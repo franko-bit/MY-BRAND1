@@ -1,0 +1,72 @@
+.container {
+  margin-top: 30rem;
+}
+.container .leftside {
+  margin-top: 4rem;
+  font-size: 20px;
+}
+.container .leftside .sign {
+  padding: 5px;
+  border-radius: 5px;
+  background: #086571;
+  border: none;
+}
+.container .leftside .sign a {
+  text-decoration: none;
+  color: white;
+}
+.container .leftside .titlee {
+  font-size: 35px;
+  background: none;
+  color: #ffffff;
+  margin-bottom: 3rem;
+}
+.container .leftside .paragraph {
+  margin-top: 2.5rem;
+}
+.container .rightside {
+  height: 45rem;
+}
+/* .amagamb {
+  height: 400px;
+  width: 770px;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  border-radius: 20px;
+}
+.amagamb strong {
+  font-size: 60px;
+  position: absolute;
+  top: 10px;
+}
+.amagamb p {
+  width: 400px;
+  padding: 30px;
+}
+.profi {
+  position: absolute;
+  left: 710px;
+  top: 120px;
+}
+.profi img {
+  width: 400px;
+  height: 501px;
+  border-radius: 40px;
+}
+
+.sign {
+  position: absolute;
+  left: 35%;
+  top: 69%;
+}
+.sign button {
+  background: #4e4e4e;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+}
+.sign button a {
+  text-decoration: none;
+  color: #ffffff;
+} */
