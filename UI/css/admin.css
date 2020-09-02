@@ -1,0 +1,55 @@
+.cards a {
+  text-decoration: none;
+  color: black;
+}
+.card .card-profile {
+  display: flex;
+  align-items: center;
+  margin: 0rem;
+  padding: 0rem;
+}
+.card .card-profile img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100rem;
+}
+
+.card .post img {
+  width: 17rem;
+  height: 11rem;
+  border-radius: 1em;
+  margin-top: 10px;
+}
+.card .post .com {
+  border-radius: 50px;
+  width: 13rem;
+  position: relative;
+  background: lightgray;
+  border: none;
+  padding: 10px;
+  margin-top: 1em;
+}
+.card .post .send {
+  border-radius: 30px;
+  border: none;
+  background: #0f6f65;
+  padding: 5px;
+  position: relative;
+}
+.card .post .footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+.card .post .footer nav {
+  padding: 10px;
+}
+.iconn {
+  font-size: 22px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -2rem;
+}
+.iconn #close {
+  margin-left: 1rem;
+}

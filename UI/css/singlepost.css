@@ -1,0 +1,116 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  grid-gap: 20px;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 5rem;
+}
+.container .card-profile {
+  display: flex;
+  align-items: center;
+  margin: 0rem;
+  padding: 0rem;
+}
+.container .card-profile img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100rem;
+}
+.container .card-profile b {
+  font-size: 3vh;
+  color: white;
+}
+.container .post img {
+  width: 100%;
+  border-radius: 1em;
+  margin-top: 10px;
+}
+.container .post .com {
+  border-radius: 50px;
+  width: 13rem;
+  position: relative;
+  background: lightgray;
+  border: none;
+  padding: 10px;
+  margin-top: 1em;
+}
+.container .post h2 {
+  color: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 6px;
+}
+.footer {
+  margin-top: 1rem;
+  font-size: 20px;
+}
+.footer span {
+  margin-right: 3rem;
+  padding: 5px;
+  border-radius: 3rem;
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(209, 207, 207);
+}
+
+.comments b {
+  color: #ffffff;
+}
+.comments ul {
+  height: 200px;
+  overflow: auto;
+  text-align: justify;
+}
+.comments ul li {
+  list-style: none;
+  color: #a06363;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+}
+.comments ul li img {
+  width: 2rem;
+  border-radius: 3rem;
+}
+.comments ul b {
+  color: rgb(255, 255, 255);
+}
+.comments .cmt {
+  padding: 2rem;
+  width: 30rem;
+  border-radius: 10px;
+  background: rgb(175, 175, 175);
+  border: none;
+  width: 100%;
+  margin-top: 2rem;
+}
+.comments button {
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+  background: teal;
+  color: #ffffff;
+}
+p {
+  color: rgb(171, 180, 180);
+}
+.comments .comment {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.comments .comment .comment-profile {
+  display: flex;
+  align-items: center;
+  margin: 0rem;
+}
+.comments .comment .comment-profile i {
+  color: black;
+}
+.comments {
+  margin-top: 3rem;
+}
+
+.comment-delede-like {
+  margin-bottom: 1rem;
+}
