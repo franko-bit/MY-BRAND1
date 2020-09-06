@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/singlepost.css" />
+    <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
+    <link
+      rel="stylesheet"
+      href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Single blog</title>
+  </head>
+  <body>
+    <div class="head">
+      <label class="logo">
+        <img src="../img/1.png" />
+      </label>
+      <label class="menu"><i class="fa fa-bars"></i></label>
+      <ul class="nav-links">
+        <li><a href="./Template.html">home</a></li>
+        <li><a href="./portif.html">Portofolio</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="./contact.html">contact</a></li>
+        <li><a href="./port.html">Blog</a></li>
+        <li class="profile">
+          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
+        </li>
+      </ul>
+    </div>
+    &nbsp;
+    <div class="container" id="container">
+      <div id="leftside" class="leftside"></div>
+      <div class="rightside">
+        <div id="comments" class="comments">
+          <b>view comments</b>
+          <ul id="delet"></ul>
+        </div>
+        <form class="myform" id="myform" name="myform">
+          <textarea
+            class="cmt"
+            placeholder="Comment..."
+            name="cmt"
+            id="cmt"
+          ></textarea>
+          <br />
+          <button><b>Comment</b></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const postId = location.href.split("?id=")[1];
+      // console.log(postId);
+      let currentPost = {};
+      //retrieve data to full mode
+      function retrieve() {
+        firebase
+          .firestore()
+          .collection("Blogs")
+          .doc(postId)
+          .onSnapshot((doc) => {
+            let HTML = " ";
+            const data = doc.data();
+            //console.log(data);
+            var display = document.getElementById("leftside");
+            HTML += `
+                  
+              <nav class="card-profile">
+                <img src="../img/pro.jpg"/>
+                <b>Munana Kevin</b>
+              </nav>
+              <div class="post">
+                <img
+                  src="${data.picture}"          />
+
+                <p style="color:lightgray;">
+                 <h1><strong style="color:white;">${data.title}</strong></h1><br>
+                  ${data.article}
+                </p>
+                <div class="footer">
+                  <span class="like">
+                    <i id="likeme"
+                      onClick="addLike();"
+                      class="fa fa-thumbs-o-up "
+                    ></i
+                    ><b id="nbr">${data.likes}</b></span
+                  >
+
+                  <span id="likespan4">
+                    <i class="fa fa-eye" aria-hidden="true"></i>0</span
+                  >
+                </div>
+              </div>
+            
+            `;
+
+            display.innerHTML = HTML;
+          });
+      }
+      retrieve();
+      // function myFunction(x) {
+      //   x.classList.toggle("fa-thumbs-down");
+      // }
+      const postRef = firebase.firestore().collection("Blogs").doc(postId);
+      const increment = firebase.firestore.FieldValue.increment(1);
+      const decrement = firebase.firestore.FieldValue.increment(-1);
+      function addLike() {
+        const likeButton = document.querySelector(".like");
+
+        if (!likeButton.classList.contains("active")) {
+          likeButton.classList.add("active");
+
+          firebase
+            .firestore()
+            .collection("Blogs")
+            .doc(postId)
+            .update({ likes: increment })
+            .catch(function (err) {
+              console.log(err);
+            });
+        } else {
+          likeButton.classList.remove("active");
+
+          firebase
+            .firestore()
+            .collection("Blogs")
+            .doc(postId)
+            .update({ likes: decrement })
+            .catch(console.log);
+        }
+      }
+
+      postRef.collection("comments").onSnapshot((docs) => {
+        let HTML = " ";
+        var display = document.querySelector(".comments ul");
+        docs.forEach((doc) => {
+          const data = doc.data();
+          HTML += `               
+                  <li class="comment">
+                    <div class="comment-profile">
+                      <img src="${data.autharPicture}" />&nbsp;&nbsp;<i>${data.autharName}</i>
+                    </div>
+                    <p>${data.comment}</p>
+                  </li>
+                  <div class="comment-delede-like">
+                    <b onclick="addLike()">Like</b>
+                    <button id="delete" style="border-radius: 7px; border: none; background: teal;padding:3px;" onclick="deletePost('${doc.id}')">Delete</button>
+                  </div>
+                  `;
+        });
+        display.innerHTML = HTML;
+      });
+      document.myform.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (document.myform.cmt.value.trim().length < 5) {
+          alert("Please provide your message!");
+          document.myform.cmt.focus();
+          return false;
+        }
+        const { displayName, photoURL } = JSON.parse(
+          localStorage.getItem("user")
+        );
+        const comment = {
+          comment: document.myform.cmt.value.trim(),
+          autharName: displayName,
+          autharPicture: photoURL,
+        };
+        firebase
+          .firestore()
+          .collection("Blogs")
+          .doc(postId)
+          .collection("comments")
+          .add(comment)
+          .then(() => {
+            postRef.update({ comments: increment }).catch(console.log);
+            return myform.reset();
+          })
+          .catch(console.log);
+      });
+      function deletePost(id) {
+        const result = confirm("Are you sure to delete the post?");
+        result &&
+          firebase
+            .firestore()
+            .collection("Blogs")
+            .doc(postId)
+            .collection("comments")
+            .doc(id)
+            .delete();
+      }
+    </script>
+    <script src="../Admin/js/navbar.js"></script>
+  </body>
+</html>
