@@ -24,352 +24,87 @@
         <li><a href="./contact.html">contact</a></li>
         <li><a href="./port.html">Blog</a></li>
         <li class="profile">
-        <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
+          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
         </li>
       </ul>
+    </div>
+
+    <div class="cards" id="cards">
+      <div class="lds-facebook">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-   
-    <div class="cards">
-      
-        <a href="./singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/pro.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/io.jpg" />
-            <h3>
-              ipsum dolor sit amet,
-               
-			</h3>
-			<div class="footer">
-				<span					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like7()"></i><b id="likespan7">0</b ></span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true" onclick="msg6()"></i><b id="sendo6">0</b></span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/3.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/18.jpg" />
-            <h3>
-			  ipsum dolor sit amet,   
-			 
-			</h3>
-			<div class="footer">
-			 
-				<span
-					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like6()"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/4.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/17.jpg" />
-            <h3>
-			  ipsum dolor sit amet,
-			   
-			</h3>
-			<div class="footer">
-			 
-				<span
-					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like5()"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
+    </div>
 
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/pro.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/5.jpg" />
-            <h3>
-              ipsum dolor sit amet,
-			</h3>
-			<div class="footer">
-			 
-				<span
-					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like4()"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
 
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/prof.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/6.jpg" />
-            <h3>
-              ipsum dolor sit amet,			  
-			  
-             
-			</h3>
-			<div class="footer">
-			 
-				<span
-					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like3()"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/7.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/10.jpg" />
-            <h3>
-              ipsum dolor sit amet,
-			  
-			</h3>
-			<div class="footer">
-			 
-				<span
-					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like2()"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/8.jpg" />
-            <b>Munana Kevin</b>
-          </nav>
-          <div class="post">
-            <img src="../img/14.jpeg" />
-            <p>
-              ipsum dolor sit amet,
-			    
-			</h3>
-			<div class="footer">
-			 
-				<span
-					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like()"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
-					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
-				  >
-				  </div>
-          </div>
-        </a>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      function retrieve() {
+        firebase
+          .firestore()
+          .collection("Blogs")
+          .get()
 
-        <a href="../html/singleblog.html" class="card">
-          <nav class="card-profile">
-            <img src="../img/keza.png" />
-            <b>Munana Kevin</b>
-          </nav>
+          .then((docs) => {
+            let HTML = " ";
+            docs.forEach((doc) => {
+              const data = doc.data();
+              var display = document.querySelector("#cards");
+              HTML += `<a href="single1.html?id=${doc.id}" class="card">
+			           <nav class="card-profile">
+            <img src="${data.autharPicture}" />
+            <b>${data.autharName}</b>
+		  </nav>
+		  
           <div class="post" class="last-div">
-            <img src="../img/19.jpg" />
+            <img src=" ${data.picture} " />
             <h3>
-              ipsum dolor sit amet, 
+				${data.title} 
 			</h3>
 			<div class="footer">
-			 
-				<span
+			 	<span
 					id="likespan2"
-					>
-					<i class="fa fa-heart" aria-hidden="true"  onclick="like2()"></i>0</span
-				  >
-				  <span
+					><i class="fa fa-heart" aria-hidden="true"  ></i>${data.likes}</span
+				  > <span
 					id="likespan2"
-					>
-					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
-				  >
-				  <span
+					><i class="fa fa-comment-o" aria-hidden="true"></i>${data.comments}</span
+				  > <span
 					id="likespan2"
-					>
-					<i class="fa fa-eye" aria-hidden="true"></i>0</span
+					><i class="fa fa-eye" aria-hidden="true"></i>0</span
 				  >
 				  </div>
-          </div>
-        </a>
-      </div>
-	</div>
-	<script src="../Admin/js/navbar.js"></script>
-    <script type="text/javascript">
-      function like() {
-        var a = document.getElementById("likespan").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan").innerText = b;
-      }
 
-      function like1() {
-        var a = document.getElementById("likespan1").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan1").innerText = b;
+				</div>
+	</a>`;
+              display.innerHTML = HTML;
+            });
+          });
       }
+      retrieve();
+    </script>
 
-      function like2() {
-        var a = document.getElementById("likespan2").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan2").innerText = b;
-      }
-
-      function like3() {
-        var a = document.getElementById("likespan3").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan3").innerText = b;
-      }
-
-      function like4() {
-        var a = document.getElementById("likespan4").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan4").innerText = b;
-      }
-      function like5() {
-        var a = document.getElementById("likespan5").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan5").innerText = b;
-      }
-      function like6() {
-        var a = document.getElementById("likespan6").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan6").innerText = b;
-      }
-      function like7() {
-        var a = document.getElementById("likespan7").innerText;
-        var b = parseInt(a) + 1 + " " + "likes";
-        document.getElementById("likespan7").innerText = b;
-      }
-
-      function msg() {
-        var a = document.getElementById("sendo").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo").innerText = b;
-      }
-      function msg1() {
-        var a = document.getElementById("sendo1").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo1").innerText = b;
-      }
-      function msg2() {
-        var a = document.getElementById("sendo2").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo2").innerText = b;
-      }
-      function msg3() {
-        var a = document.getElementById("sendo3").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo3").innerText = b;
-      }
-      function msg4() {
-        var a = document.getElementById("sendo4").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo4").innerText = b;
-      }
-      function msg5() {
-        var a = document.getElementById("sendo5").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo5").innerText = b;
-      }
-      function msg6() {
-        var a = document.getElementById("sendo6").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo6").innerText = b;
-      }
-      function msg7() {
-        var a = document.getElementById("sendo7").innerText;
-        var b = parseInt(a) + 1 + " " + "Comments";
-        document.getElementById("sendo7").innerText = b;
-      }
-	</script>
-	<script src="./Admin/js/navbar.js"></script>
+    <script src="../Admin/js/navbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
 </html>
