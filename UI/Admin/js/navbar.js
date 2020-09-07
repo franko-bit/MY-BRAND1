@@ -8,7 +8,9 @@ menu.addEventListener("click", () => {
     link.classList.toggle("fade");
   });
 });
+
 function logout() {
+  localStorage.clear();
   firebase
     .auth()
     .signOut()

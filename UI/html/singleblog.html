@@ -28,7 +28,6 @@
         </li>
       </ul>
     </div>
-    <script src="./Admin/js/navbar.js"></script>
 
     <div class="container">
       <div class="leftside">
@@ -37,7 +36,9 @@
           <b>Munana Kevin</b>
         </nav>
         <div class="post">
-          <img src="../img/io.jpg" />
+          <img
+            src="../img/115955209-asian-kid-girl-in-pink-sweater-shows-shh-sign-on-pink-background-close-up-portrait.jpg"
+          />
           <h2>ipsum dolor sit amet,</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
@@ -47,9 +48,13 @@
             praesentium hic laudantium dolorem corrupti.
           </p>
           <div class="footer">
-            <span id="likespan2">
-              <i class="fa fa-heart" aria-hidden="true" onclick="like7()"></i
-              ><b id="likespan7">0</b></span
+            <span>
+              <i
+                onClick="myFunction(this)"
+                class="fa fa-thumbs-o-up"
+                class="like"
+              ></i
+              ><b id="nbr">0</b></span
             >
 
             <span id="likespan4">
@@ -99,14 +104,160 @@
               <p>Ndagukumbuye</p>
             </li>
             <div class="comment-delede-like">
-              <b>Like</b><button>Delete</button>
+              <b onclick="toggleLike()">Like</b><button>Delete</button>
             </div>
           </ul>
-          <textarea class="cmt" placeholder="Comment...."></textarea><br />
-          <button><b>Comment</b></button>
+          <form class="myform" id="myform">
+            <textarea
+              class="cmt"
+              placeholder="Comment...."
+              name="cmt"
+              id="cmt"
+            ></textarea>
+            <br />
+            <button><b>Comment</b></button>
+          </form>
         </div>
       </div>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script> -->
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
+    <script> -->
+    <!-- // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      document
+        .querySelector("#myform ")
+        .addEventListener("submit", function (e) {
+          if (document.myform.cmt.value.trim().length < 5) {
+            alert("Please provide your comment!");
+            document.myform.cmt.value.focus();
+            return false;
+          }
+
+          firebase
+            .firestore()
+            .collection("comment")
+            .add({
+              comment: document.getElementById("cmt").value,
+            })
+            .then(function () {
+              window.location.href = "singleblog.html";
+            });
+        }); -->
+    <!-- </script> -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      function retrieve() {
+        firebase
+          .firestore()
+          .collection("Blogs")
+          .get()
+          .then((docs) => {
+            let HTML = " ";
+            docs.forEach((doc) => {
+              const data = doc.data();
+              var display = document.getElementById("cards");
+              HTML += `                 
+                   <a href="../html/singleblog.html?id=${doc.id}" class="card">
+          <nav class="card-profile" >
+            <img src="../img/keza.png" />
+            <b>Munana Kevin</b>
+          </nav>
+          <div class="post" class="last-div">
+            <img src="${data.picture}" />
+            <h3>
+              ${data.title} 
+			</h3>
+			<div class="footer">
+			 
+				<span
+					id="likespan2"
+					>
+					<i class="fa fa-heart" aria-hidden="true"  onclick="like2()"></i>0</span
+				  >
+				  <span
+					id="likespan2"
+					>
+					<i class="fa fa-comment-o" aria-hidden="true"></i>0</span
+				  >
+				  <span
+					id="likespan2"
+					>
+					<i class="fa fa-eye" aria-hidden="true"></i>0</span
+				  >
+				  </div>
+          </div>
+        </a>`;
+              display.innerHTML = HTML;
+            });
+          });
+      }
+      retrieve();
+      // function toggleLike() {
+      //   const likeButton = document.querySelector(".like");
+      //   likeButton.classList.toggle("active");
+      //   const number = likeButton.querySelector("#btn");
+      //   let classList;
+      //   if (likeButton.classList.contains("active")) {
+      //     if (!provider) return redirectTo("/html/singleblog.html");
+      //     number.textContent = `${parseInt(number.textContent) + 1}`;
+      //     postRef.update({ likes: increment });
+      //     postRef
+      //       .collection("likers")
+      //       .doc(userUid)
+      //       .set({ name: displayName, createdAt: Date.now() })
+      //       .catch(console.log);
+      //   } else {
+      //     number.textContent = `${parseInt(number.textContent) - 1}`;
+      //     postRef.update({ likes: decrement });
+      //     postRef.collection("likers").doc(userUid).delete().catch(console.log);
+      //   }
+      // }
+      function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+      }
+    </script>
     <script src="../Admin/js/navbar.js"></script>
   </body>
 </html>
