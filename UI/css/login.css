@@ -3,6 +3,12 @@
   top: 820px;
   left: 500px;
 }
+.myForm {
+  max-width: 400px;
+  width: 90%;
+  margin: auto;
+  margin-top: 5rem;
+}
 .log form {
   margin-top: 3rem;
   margin-left: 2rem;
@@ -51,4 +57,16 @@
 }
 .oooh a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .log fieldset {
+    width: 100%;
+
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    margin-top: 15%;
+    margin-left: 0rem;
+  }
 }

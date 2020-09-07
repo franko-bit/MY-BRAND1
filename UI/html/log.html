@@ -2,56 +2,51 @@
 <html>
   <head>
     <title></title>
-<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-=======
->>>>>>> 5b01bd0... feat(Auth): Adding Authentication and changes
     <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/login.css" />
   </head>
   <body>
-    <div class="log" id="bosi">
+    <div class="log" id="card">
       <fieldset>
-        <legend>Login</legend>
+        <legend style="color: white">Login</legend>
         <form id="login-div" name="myForm">
           <input
             type="email"
             name="user"
             placeholder="User Email"
             id="email"
-          /><br /><br />
+          /><br /><span id="email" class="errors"></span><br />
           <input
             type="password"
             name="pass"
             placeholder="password"
             id="pass"
-          /><br /><br />
+          /><br /><span id="pass" class="errors"></span><br />
           <button onclick="log()"><a href="admin.html">Login</a></button>
         </form>
       </fieldset>
-
-      <div id="logout-div" style="margin-top: 100%">
-        <h1>OK</h1>
-      </div>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
-        authDomain: "my-login-3f783.firebaseapp.com",
-        databaseURL: "https://my-login-3f783.firebaseio.com",
-        projectId: "my-login-3f783",
-        storageBucket: "my-login-3f783.appspot.com",
-        messagingSenderId: "783839353814",
-        appId: "1:783839353814:web:5009797bd84985880aa277",
-        measurementId: "G-7K7HK8HW4E",
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
@@ -59,6 +54,7 @@
 
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+          localStorage.setItem("user", JSON.stringify(user));
           redirect("/html/admin.html");
         }
       });
@@ -67,15 +63,18 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
           var maill = document.getElementById("email").value;
+
           var password = document.getElementById("pass").value;
 
           if (document.myForm.user.value.trim().length < 5) {
-            alert("Please provide your user email!");
+            document.querySelector("#email").innerHTML = "Check your Email";
+            document.querySelector("#email").style.padding("30px");
             document.myForm.user.focus();
             return false;
           }
           if (document.myForm.pass.value.trim().length < 2) {
-            alert("Please provide your strong password!");
+            document.querySelector("#pass").innerHTML = "Check your password";
+            document.querySelector("#pass").style.padding("30px");
             document.myForm.pass.focus();
             return false;
           }
