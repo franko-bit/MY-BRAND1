@@ -25,14 +25,17 @@
         <li><a href="./contact.html">contact</a></li>
         <li><a href="./port.html">Blog</a></li>
         <li class="profile">
-          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
+          <a href="../html/profile update.html">
+            <img src="../img/ac.png" class="2"
+          /></a>
         </li>
       </ul>
     </div>
+
     <div class="About">
       <form id="login-div" name="myForm">
         <h3>Upadate</h3>
-        <img src="../img/17.jpg" style="width: 120px" /><input
+        <img src="../img/11.jpeg" style="width: 120px" /><input
           type="file"
           id="file"
         />
@@ -44,51 +47,140 @@
         ><br />
 
         <div class="buto">
-          <button name="submit"><a href="admin.html">update</a></button>
+          <button name="submit">update</button>
         </div>
       </form>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
+      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
-        authDomain: "my-login-3f783.firebaseapp.com",
-        databaseURL: "https://my-login-3f783.firebaseio.com",
-        projectId: "my-login-3f783",
-        storageBucket: "my-login-3f783.appspot.com",
-        messagingSenderId: "783839353814",
-        appId: "1:783839353814:web:5009797bd84985880aa277",
-        measurementId: "G-7K7HK8HW4E",
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
+      //declaration of postid
+      const postId = location.href.split("?id=")[1];
+
+      let currentPost = {};
+      //retrieve data to form
+      function retrieve() {
+        firebase
+          .firestore()
+          .collection("Blogs")
+          .doc(postId)
+          .get()
+          .then((doc) => {
+            const data = doc.data();
+            currentPost = data;
+            document.myForm.title.value = data.title;
+            document.myForm.article.value = data.article;
+            document.myForm.querySelector("img") = data.picture;
+          })
+          .catch((e) => {
+            console.log("E+++++", e);
+          });
+      }
+      retrieve();
+
+      //Adding submitListener
       document
         .querySelector("#login-div")
         .addEventListener("submit", function (e) {
           e.preventDefault();
-          var title = document.getElementsByName("title").value;
-          var article = document.getElementById("article").value;
 
-          if (document.myForm.title.value.trim().length < 10) {
-            alert("Please provide your user email!");
+          var title = document.myForm.title.value;
+          var article = document.myForm.article.value;
+          if (document.myForm.title.value.trim().length < 1) {
+            alert("Please provide your Title!");
             document.myForm.title.focus();
             return false;
           }
-          if (document.myForm.article.value.trim().length < 15) {
-            alert("Please provide your message with 15 characters and above!");
+          if (document.myForm.article.value.trim().length < 5) {
+            alert("Please provide your article with 15 characters and above!");
             document.myForm.article.focus();
             return false;
           }
+          if (document.myForm.file.files.length) {
+            return updateWithImage(document.myForm.file.files[0]);
+          }
+          updatePost();
         });
+
+      function updateWithImage(file) {
+        const metadata = {
+          "content-type": "image/x-jpeg",
+        };
+        const storageRef = firebase.storage().ref();
+        const uploadTask = storageRef
+          .child(`images/${file.name}`)
+          .put(file, metadata);
+        uploadTask.on(
+          firebase.storage.TaskEvent.STATE_CHANGED,
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(`Upload is ${progress}% done`);
+            switch (snapshot.state) {
+              case firebase.storage.TaskState.PAUSED:
+                console.log("Upload is paused");
+                break;
+              case firebase.storage.TaskState.RUNNING:
+                console.log("Upload is running");
+                break;
+            }
+          },
+          (error) => {
+            switch (error.code) {
+              case "storage/unauthorized":
+                break;
+            }
+          },
+          () => {
+            uploadTask.snapshot.ref
+              .getDownloadURL()
+              .then((downloadURL) => updatePost(downloadURL));
+          }
+        );
+      }
+      function updatePost(picture = currentPost.picture) {
+        const blogData = {
+          title: document.myForm.title.value.trim(),
+          article: document.myForm.article.value.trim(),
+          picture,
+        };
+        //firebase to update
+        firebase
+          .firestore()
+          .collection("Blogs")
+          .doc(postId)
+          .update(blogData)
+          .then(() => {
+            console.log(blogData, postId);
+            setTimeout(() => redirect("/html/admin.html"), 2000);
+          })
+          .catch((e) => {
+            console.log("error++++", e);
+          });
+      }
     </script>
     <script src="../Admin/js/navbar.js"></script>
-    <script src="./Admin/js/Auth.js"></script>
+    <script src="../Admin/js/Auth.js"></script>
   </body>
 </html>

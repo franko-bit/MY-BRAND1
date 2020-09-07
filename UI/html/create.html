@@ -3,8 +3,8 @@
   <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/aboutcss.css" />
     <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/create.css" />
     <link
       rel="stylesheet"
       href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -23,52 +23,141 @@
         <li><a href="./contact.html">contact</a></li>
         <li><a href="./port.html">Blog</a></li>
         <li class="profile">
-          <a href="./profile.html"> <img src="../img/ac.png" class="2" /></a>
+          <a href="../html/profile update.html">
+            <img src="../img/ac.png" class="2"
+          /></a>
         </li>
       </ul>
     </div>
-    <div class="okkk">
-      <fieldset>
-        <legend>Create</legend>
-        <label class="prof">
-          <img src="../img/keza.png" />
-        </label>
-        <input type="file" id="file" />
-        <label for="file">Upload pic</label>
 
-        <form>
-          <input type="text" name="post" placeholder="post title....." />
-          <textarea placeholder="post article....."></textarea>
+    <div class="About">
+      <form id="login-div" name="myForm">
+        <h3>Create</h3>
+        <img src="../img/keza.png" style="width: 120px" /><input
+          type="file"
+          id="file"
+          name="file"
+        />
+        <label for="file">Create pic</label><br />
 
-          <div class="buto">
-            <button><a href="port.html">Create</a></button>
-          </div>
-        </form>
-      </fieldset>
+        <input type="text" placeholder="post title....." name="title" /><br />
+        <br />
+        <textarea placeholder="post article....." name="article"></textarea
+        ><br />
+
+        <div class="buto">
+          <button name="submit">Create</button>
+        </div>
+      </form>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
+      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyCucGIc9VrAQAKb_rUSch5_7GDNPfoQ_fM",
-        authDomain: "my-login-3f783.firebaseapp.com",
-        databaseURL: "https://my-login-3f783.firebaseio.com",
-        projectId: "my-login-3f783",
-        storageBucket: "my-login-3f783.appspot.com",
-        messagingSenderId: "783839353814",
-        appId: "1:783839353814:web:5009797bd84985880aa277",
-        measurementId: "G-7K7HK8HW4E",
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
+      function upload(file) {
+        var metadata = {
+          contentType: "image/jpeg",
+        };
+        var storageRef = firebase.storage().ref();
+        var uploadTask = storageRef
+          .child("images/" + file.name)
+          .put(file, metadata);
+        uploadTask.on(
+          firebase.storage.TaskEvent.STATE_CHANGED,
+          function (snapshot) {
+            var progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case firebase.storage.TaskState.PAUSED:
+                console.log("Upload is paused");
+                break;
+              case firebase.storage.TaskState.RUNNING:
+                break;
+            }
+          },
+          function (error) {
+            switch (error.code) {
+              case "storage/unauthorized":
+                break;
+              case "storage/canceled":
+                break;
+              case "storage/unknown":
+                break;
+            }
+          },
+          function () {
+            const { displayName, photoURL } = JSON.parse(
+              localStorage.getItem("user")
+            );
+            uploadTask.snapshot.ref
+              .getDownloadURL()
+              .then(function (downloadURL) {
+                firebase
+                  .firestore()
+                  .collection("Blogs")
+                  .add({
+                    createAt: Date.now(),
+                    likes: 0,
+                    autharName: displayName,
+                    autharPicture: photoURL,
+                    picture: downloadURL,
+                    title: document.myForm.title.value,
+                    article: document.myForm.article.value,
+                  })
+                  .then(function () {
+                    alert("Inserted");
+                    window.location.href = "admin.html";
+                  });
+              });
+          }
+        );
+      }
+
+      document
+        .querySelector("#login-div")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          if (document.myForm.file.value.trim().length < 1) {
+            alert("Please provide your profile!");
+            document.myForm.file.focus();
+            return false;
+          }
+          if (document.myForm.title.value.trim().length < 2) {
+            alert("Please provide your subject!");
+            document.myForm.title.focus();
+            return false;
+          }
+          if (document.myForm.article.value.trim().length < 2) {
+            alert("Please provide your article!");
+            document.myForm.article.value.focus();
+            return false;
+          }
+          upload(document.getElementById("file").files[0]);
+        });
     </script>
     <script src="../Admin/js/navbar.js"></script>
-    <script src="./Admin/js/Auth.js"></script>
+    <script src="../Admin/js/Auth.js"></script>
   </body>
 </html>
