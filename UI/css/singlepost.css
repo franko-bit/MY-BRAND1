@@ -52,7 +52,13 @@
   border: 1px solid rgb(255, 255, 255);
   color: rgb(209, 207, 207);
 }
-
+.comment-delede-like .delete button {
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+  background: teal;
+  color: #ffffff;
+}
 .comments b {
   color: #ffffff;
 }
@@ -75,7 +81,7 @@
 .comments ul b {
   color: rgb(255, 255, 255);
 }
-.comments .cmt {
+.myform .cmt {
   padding: 2rem;
   width: 30rem;
   border-radius: 10px;
@@ -84,7 +90,7 @@
   width: 100%;
   margin-top: 2rem;
 }
-.comments button {
+.myform button {
   padding: 5px;
   border-radius: 7px;
   border: none;

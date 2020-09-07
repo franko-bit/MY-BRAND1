@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/aboutcss.css" />
+    <link rel="stylesheet" type="text/css" href="../Admin/css/style.css" />
+    <link
+      rel="stylesheet"
+      href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="head">
+      <label class="logo">
+        <img src="../img/1.png" />
+      </label>
+      <label class="menu"><i class="fa fa-bars"></i></label>
+      <ul class="nav-links">
+        <li><a href="./Template.html">home</a></li>
+        <li><a href="./portif.html">Portofolio</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="./contact.html">contact</a></li>
+        <li><a href="./port.html">Blog</a></li>
+        <li class="profile">
+          <a href="../html/profile update.html">
+            <img src="../img/ac.png" class="2"
+          /></a>
+        </li>
+      </ul>
+    </div>
+    <div class="About">
+      <form id="login-div" name="myForm">
+        <h3>Update Profile</h3>
+        <img src="../img/ac.png" style="width: 120px" /><input
+          type="file"
+          id="file"
+          name="file"
+        />
+
+        <label for="file">Update profile photo</label><br />
+
+        <input
+          type="text"
+          name="title"
+          placeholder="Update user name..."
+        /><br />
+        <br />
+        <textarea placeholder="Update hobbies..." name="article"></textarea
+        ><br />
+
+        <div class="buto">
+          <button name="submit">update</button>
+        </div>
+      </form>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-storage.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAmqrO-89UKmGp01kKIrQZSsP-qFN7eY3Q",
+        authDomain: "contact-9929f.firebaseapp.com",
+        databaseURL: "https://contact-9929f.firebaseio.com",
+        projectId: "contact-9929f",
+        storageBucket: "contact-9929f.appspot.com",
+        messagingSenderId: "685843499166",
+        appId: "1:685843499166:web:4475ff4a2be2714b29138f",
+        measurementId: "G-T8E2YCTQ5D",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      document
+        .querySelector("#login-div")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var title = document.getElementsByName("title").value;
+
+          if (document.myForm.title.value.trim().length < 1) {
+            alert("Please provide your user email!");
+            document.myForm.title.focus();
+            return false;
+          }
+
+          upload(document.myForm.file.files[0]);
+          function upload(file) {
+            var metadata = {
+              contentType: "image/jpeg",
+            };
+            var storageRef = firebase.storage().ref();
+            var uploadTask = storageRef
+              .child("images/" + file.name)
+              .put(file, metadata);
+            uploadTask.on(
+              firebase.storage.TaskEvent.STATE_CHANGED,
+              function (snapshot) {
+                var progress =
+                  (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log("Upload is " + progress + "% done");
+                switch (snapshot.state) {
+                  case firebase.storage.TaskState.PAUSED:
+                    console.log("Upload is paused");
+                    break;
+                  case firebase.storage.TaskState.RUNNING:
+                    break;
+                }
+              },
+              function (error) {
+                switch (error.code) {
+                  case "storage/unauthorized":
+                    break;
+                  case "storage/canceled":
+                    break;
+                  case "storage/unknown":
+                    break;
+                }
+              },
+              function () {
+                uploadTask.snapshot.ref
+                  .getDownloadURL()
+                  .then(function (downloadURL) {
+                    var user = firebase.auth().currentUser;
+
+                    user
+                      .updateProfile({
+                        displayName: document.myForm.title.value,
+                        photoURL: downloadURL,
+                      })
+                      .catch(function (error) {
+                        console.log(error);
+                      });
+                  });
+              }
+            );
+          }
+        });
+    </script>
+    <script src="../Admin/js/navbar.js"></script>
+    <script src="../Admin/js/Auth.js"></script>
+  </body>
+</html>
