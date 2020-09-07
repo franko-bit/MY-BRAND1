@@ -34,26 +34,28 @@
         </li>
       </ul>
     </div>
-
+    <span id="insert"></span>
     <form name="myForm" id="form" class="myForm">
       <b>Contact us</b><br /><br />
-      <input
-        type="text"
-        name="name"
-        placeholder="fullname"
-        id="name"
-      /><br /><br />
-      <input
-        type="text"
-        name="mail"
-        placeholder="Email"
-        id="mail"
-      /><br /><br />
-      <input type="text" name="phn" placeholder="phone" id="phn" /><br /><br />
+      <input type="text" name="name" placeholder="fullname" id="name" /><br />
+      <span id="name-error" class="errors"></span><br />
+      <input type="text" name="mail" placeholder="Email" id="mail" /><br /><span
+        id="mail-error"
+        class="errors"
+      ></span
+      ><br />
+      <input type="text" name="phn" placeholder="phone" id="phn" /><br /><span
+        id="phn-error"
+        class="errors"
+      ></span
+      ><br />
       <input type="text" name="sub" placeholder="subject" id="sub" />
-      <br /><br />
-      <textarea placeholder="message" id="msg" name="msg"></textarea
-      ><br /><br />
+      <br /><span id="sub-error" class="errors"></span><br />
+      <textarea placeholder="message" id="msg" name="msg"></textarea><br /><span
+        id="msg-error"
+        class="errors"
+      ></span
+      ><br />
       <button>Submit</button>
     </form>
     <script src="../Admin/js/navbar.js"></script>
@@ -83,17 +85,22 @@
       document.querySelector("#form").addEventListener("submit", function (e) {
         e.preventDefault();
         if (document.myForm.name.value.trim().length < 5) {
-          alert("Please provide your Name!");
+          document.querySelector("#name-error").innerHTML =
+            "Name must have more than 5 Letters";
+
           document.myForm.name.focus();
           return false;
         }
         if (document.myForm.sub.value.trim().length < 2) {
-          alert("Please provide your subject!");
+          document.querySelector("#sub-error").innerHTML =
+            "Subject must have more than 2 Letters";
+          document.querySelector("#sub-error").style.padding("30px");
           document.myForm.sub.focus();
           return false;
         }
         if (document.myForm.msg.value.trim().length < 2) {
-          alert("Please provide your message!");
+          document.querySelector("#msg-error").innerHTML =
+            "Message must have more than 2 Letters";
           document.myForm.msg.focus();
           return false;
         }
@@ -102,16 +109,18 @@
           isNaN(document.myForm.phn.value) ||
           document.myForm.phn.value.length != 13
         ) {
-          alert("Please provide telephone in the format ##############");
+          document.querySelector("#phn-error").innerHTML =
+            "telephone number must have 11 digits";
           document.myForm.phn.focus();
           return false;
         }
         if (document.myForm.mail.value.trim().length < 2) {
-          alert("Please provide your Email!");
+          document.querySelector("#mail-error").innerHTML =
+            " Please provide your Email!";
           document.myForm.mail.focus();
           return false;
         }
-        firebase
+        var inserto = firebase
           .firestore()
           .collection("query")
           .add({
@@ -124,6 +133,11 @@
           .then(function () {
             window.location.href = "contact.html";
           });
+        if (inserto) {
+          document.querySelector("#insert").innerHTML = "Query Successfully";
+        } else {
+          document.querySelector("#insert").innerHTML = "Server Failed";
+        }
       });
     </script>
   </body>
