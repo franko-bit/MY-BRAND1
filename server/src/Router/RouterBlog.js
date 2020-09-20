@@ -1,0 +1,12 @@
+const exp = require("express");
+const controll = require("../controller/controllerArticle.js");
+const { uploadImg } = require("../middlewares/img.js");
+const verifyToken = require("../middlewares/Auth.js");
+const router = exp.Router();
+router.get("/blogs", controll.GetArticle);
+router.post("/blog", verifyToken, uploadImg, controll.createArticle);
+router.get("/blog/:_id", controll.findArticle);
+router.post("/blogg/:_id", controll.likeArticle);
+router.patch("/blog/:_id", verifyToken, controll.updateArticle);
+router.delete("/blog/:_id", verifyToken, controll.deleteArticle);
+module.exports = router;
