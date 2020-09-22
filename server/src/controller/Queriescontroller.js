@@ -9,7 +9,7 @@ exports.createQuery = async (req, res) => {
   try {
     const result = await QuerySchema.validateAsync(req.body, (err, data) => {
       if (err) {
-        console.log("booooo");
+        res.send("Validation fail");
       } else {
         console.log(data);
       }
