@@ -8,22 +8,20 @@ app.use(express.json());
 //     message: "welcome to the api",
 //   });
 // });
-exports.postsss = async (req, res) => {
-  const post = {
-    title: req.body.title,
-    body: req.body.body,
-    Auth: req.userData.user,
-  };
+// exports.postsss = async (req, res) => {
+// //   const post = {
+// //     Auth: req.userData.user,
+// //   };
 
-  res.status(200).json(post);
-};
+// //   res.status(200).json(post);
+// // };
 exports.loginn = async (req, res) => {
   //mock user
   const user = {
     id: 1,
-    username: "brad",
-    email: "ngabofrank375@gmail.com",
-    password: "$2b$11$pnuPpac/UHzdTMbCZ.iMweUu2Nbulo5vUi2az18F/GCEVzHobl2Lu",
+    username: process.env.USERNAME,
+    email: process.env.EMAIL,
+    password: process.env.PASSWORD,
   };
   if (req.body.email !== user.email) {
     return res.status(401).json({
@@ -43,7 +41,7 @@ exports.loginn = async (req, res) => {
     {
       user: user,
     },
-    "secretkey"
+    process.env.SECRET
   );
   res.json({
     token: token,
