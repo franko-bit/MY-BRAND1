@@ -6,6 +6,7 @@ const routQuery = require("./Router/queries.js");
 const routBlog = require("./Router/RouterBlog.js");
 const routAuth = require("./Router/RouterAuth.js");
 const routcomment = require("./Router/routercomment.js");
+require("dotenv").config();
 mongoosee.connect(
   "mongodb://localhost:27017/My_Bland",
   { useNewUrlParser: true, useUnifiedTopology: true },
