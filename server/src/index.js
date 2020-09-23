@@ -7,8 +7,10 @@ const routBlog = require("./Router/RouterBlog.js");
 const routAuth = require("./Router/RouterAuth.js");
 const routcomment = require("./Router/routercomment.js");
 require("dotenv").config();
-mongoosee.connect(
-  "mongodb://localhost:27017/My_Bland",
+mongoosee.connect( 
+  process.env.NODE_ENV == "test"
+    ? "mongodb://localhost:27017/My_Bland_test"
+    : "mongodb://localhost:27017/My_Bland",
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (err) {
@@ -31,3 +33,4 @@ mongoosee.connect(
     });
   }
 );
+module.exports = app;
