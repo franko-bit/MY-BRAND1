@@ -14,9 +14,24 @@ describe("queries endpoints", () => {
     });
     it("it should return queries", async () => {
       const res = await request(app)
-        .post("/create_queries")
+        .get("/queries") //get
         .set("Authorization", `Bearer ${fakeToken}`);
-      console.log(res.body);
+
+      expect(res).to.have.property("status", 200);
+    });
+
+    it(" should create query", async () => {
+      const res = await request(app)
+        .post("/create_queries")
+        .send({
+          fname: "Red Boss",
+          Email: " red67@gmail.com",
+          phone: "078567483",
+          subject: "BOSS is coming",
+          message: "at processTicksAndRejections",
+        })
+        .set("Authorization", `Bearer ${fakeToken}`);
+
       expect(res).to.have.property("status", 200);
     });
   });
