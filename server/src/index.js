@@ -16,7 +16,7 @@ mongoosee.connect(
     if (err) {
       console.log(err);
     }
-    const PORT = 3000;
+    const PORT = process.env.PORT;
     app.use(exp.json());
     app.use(
       exp.urlencoded({

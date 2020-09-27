@@ -5,15 +5,13 @@ exports.GetQuery = async (req, res) => {
   res.send({ data: modules });
 };
 exports.createQuery = async (req, res) => {
-  const data = new moduls(req.body);
   try {
-    const result = await QuerySchema.validateAsync(req.body, (err, data) => {
+    const result = QuerySchema.validate(req.body, (err) => {
       if (err) {
         res.send("Validation fail");
-      } else {
-        console.log(data);
       }
     });
+    const data = new moduls(req.body);
     await data.save((err, data) => {
       if (err) {
         res.send("Data not saved try again");
