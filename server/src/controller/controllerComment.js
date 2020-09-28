@@ -18,3 +18,10 @@ exports.findcomment = async (req, res) => {
   const modulees = await comment.findById(req.params._id);
   res.send({ data: modulees });
 };
+exports.deleteComment = async (req, res) => {
+  const data = new comment(req.body);
+  await modulees.remove(data);
+  const modulees = await comment.findById(req.params._id);
+
+  res.send({ data: modulees });
+};

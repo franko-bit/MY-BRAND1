@@ -12,7 +12,7 @@ const getArticles = () => {
   afterEach(async () => {
     await Article.deleteMany({});
   });
-  it.skip("should return 200 status  if article fetcher successfully", async () => {
+  it("should return 200 status  if article fetcher successfully", async () => {
     article.collection.insertMany([
       {
         title: " My style",
@@ -44,6 +44,16 @@ describe("blog endpoints", () => {
         .set("Authorization", `Bearer ${fakeToken}`);
 
       expect(res).to.have.property("status", 201);
+    });
+    it("it should return one blog", async () => {
+      const blogg = await Article.create({
+        photo: "879.jpg",
+        title: " Boss",
+        article: " For async tests and hooks, ensure",
+      });
+      await blogg.save();
+      const res = await request(app).get(`/blog/${blogg._id}`);
+      expect(res).to.have.property("status", 200);
     });
     it(" should delete blog", async () => {
       const blog = await Article.create({

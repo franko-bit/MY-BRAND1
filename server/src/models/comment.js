@@ -3,4 +3,4 @@ const mongoosee = require("mongoose");
 const schemaComment = new mongoosee.Schema({
   comment: String,
 });
-module.exports = mongoosee.model("posto", schemaComment);
+module.exports = mongoosee.model("comment", schemaComment);
