@@ -17,7 +17,7 @@ describe("comments endpoints", () => {
       console.log(res.body);
       expect(res).to.have.property("status", 200);
     });
-    it(" should delete comment", async () => {
+    it.skip(" should delete comment", async () => {
       const comm = await comme.create({
         comment: "Red Boss boss boss comment",
       });

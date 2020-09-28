@@ -4,12 +4,11 @@
   "description": "Create Queries",
   "main": "index.js",
   "scripts": {
-
     "test": "cross-env NODE_ENV=test mocha */test/**.test.js --exit --timeout 10000",
     "cover": "nyc npm test",
-    "start": "nodemon src/index",
+    "start": "node src/index",
+    "dev": "nodemon src/index",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
-
   },
   "author": "Frank",
   "license": "ISC",
@@ -32,7 +31,9 @@
     "nyc": "^15.1.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "swagger-jsdoc": "^4.2.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
