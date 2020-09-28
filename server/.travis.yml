@@ -1,8 +1,8 @@
 sudo: false
 language: node_js
 env:
-  - MONGO_URI_TEST=mongodb://localhost/my-brand-test
-  - PORT=3000
+  - MONGO_URI_TEST=mongodb://localhost/Testing
+
 node_js:
   - "stable"
 services:

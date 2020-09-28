@@ -1,4 +1,4 @@
-const comment = require("../models/Comment.js");
+const comment = require("../models/comment.js");
 exports.Getcomment = async (req, res) => {
   const modules = await comment.find();
   res.send({ data: modules });
@@ -16,5 +16,12 @@ exports.createComment = async (req, res) => {
 exports.findcomment = async (req, res) => {
   const data = new comment(req.body);
   const modulees = await comment.findById(req.params._id);
+  res.send({ data: modulees });
+};
+exports.deleteComment = async (req, res) => {
+  const data = new comment(req.body);
+  await modulees.remove(data);
+  const modulees = await comment.findById(req.params._id);
+
   res.send({ data: modulees });
 };
