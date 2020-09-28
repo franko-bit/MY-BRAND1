@@ -19,7 +19,7 @@ describe("queries endpoints", () => {
 
       expect(res).to.have.property("status", 200);
     });
-    it("it should return one blog", async () => {
+    it("it should return one query", async () => {
       const query = await queries.create({
         fname: "Red Boss",
         Email: " red67@gmail.com",
@@ -33,17 +33,18 @@ describe("queries endpoints", () => {
     });
 
     it(" should create query", async () => {
-      const res = await request(app)
-        .post("/create_queries")
-        .send({
-          fname: "Red Boss",
-          Email: " red67@gmail.com",
-          phone: "078567483",
-          subject: "BOSS is coming",
-          message: "at processTicksAndRejections",
-        })
-        .set("Authorization", `Bearer ${fakeToken}`);
+      const res = await request(app).post("/create_queries").send({
+        fname: "Red Boss",
+        Email: " red67@gmail.com",
+        phone: "078567483",
+        subject: "BOSS is coming",
+        message: "at processTicksAndRejections",
+      });
 
+      expect(res).to.have.property("status", 200);
+    });
+    it(" should fail when no field provided", async () => {
+      const res = await request(app).post("/create_queries");
       expect(res).to.have.property("status", 200);
     });
   });

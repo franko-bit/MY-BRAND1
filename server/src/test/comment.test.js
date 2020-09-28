@@ -10,8 +10,16 @@ describe("comments endpoints", () => {
       const res = await request(app).get("/comment");
       expect(res).to.have.property("status", 200);
     });
+    it("Should read one comment", async () => {
+      const comm = await comme.create({
+        comment: "Red Boss boss boss comment",
+      });
+      await comm.save();
+      const res = await request(app).get(`/comment/${comm._id}`);
+      expect(res).to.have.property("status", 200);
+    });
     it(" should create comment", async () => {
-      const res = await request(app).post("/comment/:_id").send({
+      const res = await request(app).post(`/comment/:_id`).send({
         comment: "Red Boss boss boss comment",
       });
       console.log(res.body);
@@ -23,9 +31,8 @@ describe("comments endpoints", () => {
       });
       await comm.save();
       const fakeToken = jwt.sign({}, "secretkey");
-      const res = await request(app)
-        .delete(`/Deletecomment`)
-        .set("Authorization", `Bearer ${fakeToken}`);
+      const res = await request(app).delete(`/Deletecomment`);
+      // .set("Authorization", `Bearer ${fakeToken}`);
       expect(res).to.have.property("status", 200);
     });
   });

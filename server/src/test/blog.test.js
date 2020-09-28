@@ -42,7 +42,7 @@ describe("blog endpoints", () => {
         .field("title", "test")
         .field("article", "This is probably not a problem with npm")
         .set("Authorization", `Bearer ${fakeToken}`);
-
+      console.log(res.body);
       expect(res).to.have.property("status", 201);
     });
     it("it should return one blog", async () => {
@@ -78,6 +78,18 @@ describe("blog endpoints", () => {
         .patch(`/update_blog/${blog._id}`)
         .send({ title: "Rich" })
         .set("Authorization", `Bearer ${fakeToken}`);
+
+      expect(res).to.have.property("status", 200);
+    });
+    it(" should like blog", async () => {
+      const blog = await Article.create({
+        photo: "879.jpg",
+        title: " poorBoy",
+        article: " For async tests and hooks, ensure",
+      });
+      await blog.save();
+      const res = await request(app).post(`/like_blog/${blog._id}`);
+
       console.log(res.body);
       expect(res).to.have.property("status", 200);
     });

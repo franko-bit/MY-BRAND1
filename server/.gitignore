@@ -2,3 +2,4 @@ node_modules
 tmp
 upload
 .nyc_output
+coverage

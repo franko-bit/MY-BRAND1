@@ -8,7 +8,7 @@ exports.createQuery = async (req, res) => {
   try {
     const result = QuerySchema.validate(req.body, (err) => {
       if (err) {
-        res.send("Validation fail");
+        res.json("Validation fail");
       }
     });
     const data = new moduls(req.body);
