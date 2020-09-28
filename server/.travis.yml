@@ -12,6 +12,7 @@ cache:
 notifications:
   email: false
 script:
+  - cd server
   - npm ci
   - npm test
   - npm run cover
