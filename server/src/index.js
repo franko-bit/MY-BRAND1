@@ -8,7 +8,9 @@ const routAuth = require("./Router/RouterAuth.js");
 const routcomment = require("./Router/routercomment.js");
 require("dotenv").config();
 mongoosee.connect(
-  "mongodb://localhost:27017/My_Bland",
+  process.env.NODE_ENV == "test"
+    ? "mongodb://localhost:27017/testing"
+    : process.env.MONGO_URI_TEST,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (err) {
