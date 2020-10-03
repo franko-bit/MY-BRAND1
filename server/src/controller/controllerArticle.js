@@ -7,17 +7,14 @@ exports.GetArticle = async (req, res) => {
   const modules = await moduls.find();
   res.send({ data: modules });
 };
-
 exports.createArticle = async (req, res) => {
   try {
-    const result = await authSchema.validateAsync(req.body, (err, data) => {
-      if (err) {
-        res.send(" Validation fail");
-      } else {
-        console.log(data);
-      }
-    });
-
+    const errors = authSchema.validate(req.body);
+    if (errors.error)
+      return res.status(400).json({
+        message: "validation error",
+        error: errors.error.details[0],
+      });
     const data = new moduls({
       ...req.body,
       photo: req.image,
@@ -31,15 +28,11 @@ exports.createArticle = async (req, res) => {
 };
 
 exports.likeArticle = async (req, res) => {
-  const modulees = await moduls.findById(req.params._id);
-
-  const data = moduls.findOneAndUpdate(
-    { _id: res._id },
-    { $inc: { "modulees.like": 1 } },
-    { new: true }
-  );
+  let modulees = await moduls.findById(req.params._id);
   console.log(modulees);
-  res.send({ data: modulees });
+  modulees.like++;
+  await modulees.save();
+  res.status(200).json({ data: modulees });
 };
 exports.findArticle = async (req, res) => {
   const data = new moduls(req.body);
@@ -58,8 +51,12 @@ exports.updateArticle = async (req, res) => {
   });
 };
 exports.deleteArticle = async (req, res) => {
-  const data = new moduls(req.body);
-  const modulees = await moduls.findById(req.params._id);
-  await modulees.remove();
-  res.send({ data: modulees });
+  try {
+    const data = new moduls(req.body);
+    const modulees = await moduls.findById(req.params._id);
+    await modulees.remove();
+    res.send({ data: modulees });
+  } catch (error) {
+    res.status(500).json(error);
+  }
 };
